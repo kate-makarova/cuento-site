@@ -1,0 +1,147 @@
+---
+title: "Настройки администратора — Документация Cuento"
+---
+
+      <div class="docs-eyebrow">Панель администратора</div>
+      <h1 class="docs-title">Настройки</h1>
+      <p class="docs-lead">
+        Страница настроек управляет поведением сайта — кто что может делать, как отображается
+        контент и как подключаются внешние сервисы. Изменения вступают в силу сразу после сохранения.
+      </p>
+
+      <div class="docs-screenshot">
+        <img src="/assets/screenshots/admin-settings.png" alt="Скриншот страницы настроек администратора" />
+      </div>
+
+      <h2 class="docs-h2">Поля</h2>
+
+      <div class="field-list">
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Название сайта</div>
+            <div class="field-values">текст</div>
+          </div>
+          <div class="field-desc">
+            Отображаемое название экземпляра Cuento. Показывается во вкладке браузера, шапке
+            и везде, где сайт ссылается на себя по имени.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Постов на страницу</div>
+            <div class="field-values">число</div>
+          </div>
+          <div class="field-desc">
+            Количество постов, отображаемых на одной странице темы. Меньшее значение ускоряет
+            загрузку; большее позволяет читать длинные треды без листания. По умолчанию <code>20</code>.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">API-ключ ImgBB</div>
+            <div class="field-values">текст</div>
+          </div>
+          <div class="field-desc">
+            API-ключ для <a href="https://imgbb.com" class="docs-link">ImgBB</a> — сервиса хостинга
+            изображений, используемого при загрузке картинок через редактор постов. Без действующего
+            ключа загрузка изображений будет недоступна. Получи бесплатный ключ в личном кабинете ImgBB.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Показывать навигацию после шапки</div>
+            <div class="field-values"><span class="val">y</span> / <span class="val">n</span></div>
+          </div>
+          <div class="field-desc">
+            Определяет, где отображаются ссылки навигации относительно панели шапки.
+            <code>y</code> — ниже изображения/баннера шапки;
+            <code>n</code> — выше (по умолчанию).
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Разрешить выбор фракции при создании персонажа</div>
+            <div class="field-values"><span class="val">y</span> / <span class="val">n</span></div>
+          </div>
+          <div class="field-desc">
+            При значении <code>y</code> участники могут прикрепить нового персонажа к фракции
+            в процессе его создания. При <code>n</code> эта опция скрыта —
+            полезно, если фракции назначаются только администраторами.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Разрешить пользователям создавать фракции</div>
+            <div class="field-values"><span class="val">y</span> / <span class="val">n</span></div>
+          </div>
+          <div class="field-desc">
+            Позволяет авторизованным участникам создавать новые фракции. При <code>n</code>
+            создание фракций доступно только администраторам.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Разрешить гостям создавать фракции</div>
+            <div class="field-values"><span class="val">y</span> / <span class="val">n</span></div>
+          </div>
+          <div class="field-desc">
+            Позволяет незарегистрированным посетителям создавать фракции. Настройка независима от
+            пользовательской — на открытом форуме могут быть более свободные правила для гостей
+            при обязательной регистрации для постоянной игры.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Разрешить пользователям подавать клеймы</div>
+            <div class="field-values"><span class="val">y</span> / <span class="val">n</span></div>
+          </div>
+          <div class="field-desc">
+            Позволяет авторизованным участникам подавать клеймы (заявки на игру конкретными персонажами).
+            При <code>n</code> клеймы управляются исключительно персоналом.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Разрешить гостям подавать клеймы</div>
+            <div class="field-values"><span class="val">y</span> / <span class="val">n</span></div>
+          </div>
+          <div class="field-desc">
+            Позволяет незарегистрированным посетителям подавать заявки на персонажей. Полезно для
+            открытых форумов, где регистрация следует за одобренным клеймом.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Разрешить клеймы на желаемых персонажей</div>
+            <div class="field-values">
+              <span class="val">y</span> / <span class="val">n</span> / <span class="val">moderated</span>
+            </div>
+          </div>
+          <div class="field-desc">
+            Управляет возможностью претендовать на персонажей из списка желаемых.
+            <ul class="docs-list">
+              <li><code>y</code> — любой, кто соответствует правилам клеймов, может взять желаемого персонажа напрямую.</li>
+              <li><code>n</code> — желаемые персонажи недоступны через обычный процесс клеймов.</li>
+              <li><code>moderated</code> — клеймы на желаемых персонажей отправляются на рассмотрение персонала перед одобрением.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <h2 class="docs-h2">Сохранение</h2>
+      <p class="docs-p">
+        Нажми <strong>Сохранить</strong> внизу страницы, чтобы применить все изменения сразу.
+        Все поля сохраняются вместе — пофieldного сохранения нет. Кнопка ненадолго показывает
+        подтверждение, затем возвращается в исходное состояние.
+      </p>

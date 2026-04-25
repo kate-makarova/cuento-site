@@ -1,0 +1,183 @@
+---
+title: "Редактор шаблона персонажа — Документация Cuento"
+---
+
+      <div class="docs-eyebrow">Панель администратора</div>
+      <h1 class="docs-title">Редактор шаблона персонажа</h1>
+      <p class="docs-lead">
+        Редактор шаблона персонажа определяет поля, отображаемые в каждой анкете персонажа
+        на форуме. Ты управляешь тем, какую информацию участники заполняют при создании персонажа —
+        имя, возраст, внешность, биографию или всё, что требует твоя игровая система.
+      </p>
+
+      <div class="docs-screenshot">
+        <img src="/assets/screenshots/admin-character-template.png" alt="Скриншот редактора шаблона персонажа" />
+      </div>
+
+      <h2 class="docs-h2">Принцип работы</h2>
+      <p class="docs-p">
+        Каждая строка в редакторе задаёт одно поле анкеты персонажа. Порядок строк определяет
+        порядок полей для участников. Добавляй столько полей, сколько нужно игре, расставляй их
+        и сохраняй — шаблон применяется ко всем персонажам форума.
+      </p>
+
+      <div class="callout">
+        Изменение шаблона не удаляет существующие данные персонажей. Удаление поля из шаблона
+        скрывает его из интерфейса анкеты, но данные сохраняются в базе.
+        Переименование <strong>машинного имени поля</strong> существующего поля фактически
+        разрывает связь с сохранёнными данными — считай машинные имена постоянными
+        после создания персонажей.
+      </div>
+
+      <h2 class="docs-h2">Свойства поля</h2>
+
+      <div class="field-list">
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Машинное имя поля</div>
+            <div class="field-values">текст</div>
+          </div>
+          <div class="field-desc">
+            Внутренний идентификатор поля, используемый в базе данных и API.
+            Только строчные буквы и подчёркивания — например, <code>character_name</code>,
+            <code>age</code>, <code>eye_colour</code>. Имя должно быть уникальным среди всех
+            полей шаблона. После создания персонажей с этим полем изменять имя нельзя.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Отображаемое имя поля</div>
+            <div class="field-values">текст</div>
+          </div>
+          <div class="field-desc">
+            Метка, показываемая участникам в анкете персонажа. Может быть на любом языке
+            и изменяться в любое время — например, <code>Имя персонажа</code>,
+            <code>Возраст</code>, <code>Цвет глаз</code>.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Тип поля</div>
+            <div class="field-values">выпадающий список</div>
+          </div>
+          <div class="field-desc">
+            Тип элемента ввода, показываемого участникам при заполнении поля.
+            <table class="docs-table">
+              <thead><tr><th>Значение</th><th>Элемент ввода</th></tr></thead>
+              <tbody>
+                <tr><td><code>string</code></td><td>Однострочное текстовое поле</td></tr>
+                <tr><td><code>text</code></td><td>Многострочная текстовая область</td></tr>
+                <tr><td><code>int</code></td><td>Поле целого числа</td></tr>
+                <tr><td><code>decimal</code></td><td>Поле десятичного числа</td></tr>
+                <tr><td><code>date</code></td><td>Выбор даты</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Тип содержимого</div>
+            <div class="field-values">выпадающий список</div>
+          </div>
+          <div class="field-desc">
+            Способ хранения и отображения значения. Выбери тип, наиболее подходящий для содержимого поля.
+            <table class="docs-table">
+              <thead><tr><th>Значение</th><th>Использовать для</th></tr></thead>
+              <tbody>
+                <tr><td><code>short_text</code></td><td>Краткие значения до 255 символов (имена, звания, возраст)</td></tr>
+                <tr><td><code>long_text</code></td><td>Расширенный текст (биография, характер, история)</td></tr>
+                <tr><td><code>number</code></td><td>Целые числа</td></tr>
+                <tr><td><code>decimal</code></td><td>Числа с плавающей точкой</td></tr>
+                <tr><td><code>image</code></td><td>Загруженное изображение (аватар, референс)</td></tr>
+                <tr><td><code>cropped_image</code></td><td>Изображение, обрезанное до точных размеров — открывает поля Ширина и Высота</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Порядок</div>
+            <div class="field-values">число</div>
+          </div>
+          <div class="field-desc">
+            Определяет позицию поля в анкете персонажа. Поля сортируются по этому числу
+            по возрастанию. Используй интервалы (1, 10, 20…), если планируешь добавлять
+            поля между существующими.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Ширина / Высота</div>
+            <div class="field-values">число (px)</div>
+          </div>
+          <div class="field-desc">
+            Отображается только когда <strong>тип содержимого</strong> установлен в
+            <code>cropped_image</code>. Задаёт точные размеры в пикселях, до которых
+            будут обрезаться загружаемые изображения. Полезно для единообразия слотов
+            портретов или изображений шапки.
+          </div>
+        </div>
+
+      </div>
+
+      <h2 class="docs-h2">Управление полями</h2>
+
+      <div class="field-list">
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Добавить поле</div>
+          </div>
+          <div class="field-desc">
+            Добавляет новую пустую строку поля в конец шаблона. Заполни все свойства перед
+            сохранением. Поля с пустым машинным именем игнорируются при сохранении.
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Удалить</div>
+          </div>
+          <div class="field-desc">
+            Немедленно убирает поле из шаблона в редакторе. Изменение не становится
+            постоянным до нажатия <strong>Сохранить</strong>.
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Сохранить</div>
+          </div>
+          <div class="field-desc">
+            Сохраняет весь шаблон за один раз. Все поля (кроме полей с пустым машинным именем)
+            отправляются на сервер. Кнопка ненадолго показывает подтверждение, затем
+            возвращается в исходное состояние.
+          </div>
+        </div>
+      </div>
+
+      <h2 class="docs-h2">Пример шаблона</h2>
+      <p class="docs-p">
+        Простая анкета фэнтезийного персонажа может содержать следующие поля:
+      </p>
+
+      <table class="docs-table" style="margin-top: 1rem;">
+        <thead>
+          <tr>
+            <th>Машинное имя</th>
+            <th>Отображаемое имя</th>
+            <th>Тип поля</th>
+            <th>Тип содержимого</th>
+            <th>Порядок</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>character_name</code></td><td>Имя персонажа</td><td>string</td><td>short_text</td><td>1</td></tr>
+          <tr><td><code>portrait</code></td><td>Портрет</td><td>string</td><td>cropped_image</td><td>2</td></tr>
+          <tr><td><code>age</code></td><td>Возраст</td><td>int</td><td>number</td><td>3</td></tr>
+          <tr><td><code>biography</code></td><td>Биография</td><td>text</td><td>long_text</td><td>4</td></tr>
+        </tbody>
+      </table>

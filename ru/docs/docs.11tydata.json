@@ -1,0 +1,5 @@
+{
+  "layout": "docs-ru.njk",
+  "navStyle": "docs",
+  "extraCss": ["/docs/docs.css"]
+}

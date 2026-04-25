@@ -1,0 +1,20 @@
+---
+layout: base-ru.njk
+---
+<div class="docs-layout">
+
+  <aside class="docs-sidebar">
+    <div class="sidebar-label">Администратор</div>
+    <nav class="sidebar-nav">
+      <a href="/ru/docs/admin-settings/" class="sidebar-link{% if page.url == '/ru/docs/admin-settings/' %} active{% endif %}">Настройки</a>
+      <a href="/ru/docs/admin-subforums/" class="sidebar-link{% if page.url == '/ru/docs/admin-subforums/' %} active{% endif %}">Подфорумы</a>
+      <a href="/ru/docs/admin-topic-commander/" class="sidebar-link{% if page.url == '/ru/docs/admin-topic-commander/' %} active{% endif %}">Topic Commander</a>
+      <a href="/ru/docs/admin-character-template/" class="sidebar-link{% if page.url == '/ru/docs/admin-character-template/' %} active{% endif %}">Шаблон персонажа</a>
+    </nav>
+  </aside>
+
+  <main class="docs-content">
+    {{ content | safe }}
+  </main>
+
+</div>

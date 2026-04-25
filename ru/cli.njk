@@ -1,0 +1,375 @@
+---
+title: "Cuento CLI — Разверни собственный экземпляр"
+layout: base-ru.njk
+navStyle: cli
+extraCss:
+  - /cli.css
+---
+
+  <!-- HERO -->
+  <section class="cli-hero">
+    <div class="container">
+      <p class="hero-eyebrow">инструмент командной строки · собственный хостинг</p>
+      <h1 class="hero-title">Разверни Cuento<br/>за считанные минуты.</h1>
+      <p class="hero-sub">
+        Cuento CLI берёт на себя всё — форкает репозитории, настраивает VPS,
+        устанавливает базу данных, подключает SSL и поддерживает экземпляр в актуальном
+        состоянии — всё через интерактивное меню в терминале.
+      </p>
+      <div class="download-group">
+        <a href="https://github.com/kate-makarova/cuento-cli/releases/latest" class="btn-sketch btn-primary">Скачать для macOS ↗</a>
+        <a href="https://github.com/kate-makarova/cuento-cli/releases/latest" class="btn-sketch btn-secondary">Скачать для Windows ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTALL -->
+  <section class="cli-section" id="install">
+    <div class="container">
+      <div class="section-label">начало работы</div>
+      <h2 class="section-title">Установка и запуск.</h2>
+      <p style="font-size:0.95rem;opacity:0.68;max-width:560px;margin-bottom:0.5rem;">
+        CLI — это один исполняемый файл, без среды выполнения и зависимостей.
+        Скачай бинарник для своей ОС, сделай его исполняемым и запусти.
+      </p>
+
+      <div class="terminal">
+        <span class="terminal-dots">● ● ●</span>
+        <span class="prompt">$ </span><span class="cmd">xattr -d com.apple.quarantine cuento-cli-mac</span><br/>
+        <span class="prompt">$ </span><span class="cmd">chmod +x cuento-cli-mac</span><br/>
+        <span class="prompt">$ </span><span class="cmd">./cuento-cli-mac</span><br/>
+        <br/>
+        <span class="comment"># Появится меню выбора проекта — вот и всё.</span>
+      </div>
+
+      <div class="section-label" style="margin-top:3rem;">требования</div>
+      <p style="font-size:0.95rem;opacity:0.68;max-width:560px;margin-bottom:0;">
+        Перед запуском CLI подготовь следующее.
+      </p>
+
+      <div class="prereq-grid">
+        <div class="prereq-card">
+          <span class="prereq-icon">&#128039;</span>
+          <h3>Аккаунт GitHub</h3>
+          <p>CLI форкнет репозитории Cuento в него и будет управлять деплоями через него.</p>
+        </div>
+        <div class="prereq-card">
+          <span class="prereq-icon">&#127757;</span>
+          <h3>VPS</h3>
+          <p>Сервер на Debian или Ubuntu (минимум 1 CPU, 1 ГБ ОЗУ) с SSH-доступом — root или sudo.</p>
+        </div>
+        <div class="prereq-card">
+          <span class="prereq-icon">&#127760;</span>
+          <h3>Домен</h3>
+          <p>Доменное имя, A-запись которого уже указывает на IP-адрес твоего сервера.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="cli-section" id="how">
+    <div class="container">
+      <div class="section-label">как это работает</div>
+      <h2 class="section-title">От нуля до работающего экземпляра.</h2>
+      <p style="font-size:0.95rem;opacity:0.68;max-width:560px;margin-bottom:0;">
+        CLI проведёт тебя через всё в интерактивном режиме. Запусти его, выбери
+        <em>Добавить новый проект</em>, ответь на вопросы и наблюдай за установкой шаг за шагом —
+        с поддержкой возобновления, если что-то прервётся.
+      </p>
+
+      <div class="numbered-steps">
+        <div class="numbered-step">
+          <div class="n-step-num">01</div>
+          <div class="n-step-body">
+            <h3>Форк репозиториев</h3>
+            <p>CLI форкает основные репозитории бэкенда и фронтенда Cuento в твой аккаунт GitHub,
+               создаёт ветку <code>release</code> в каждом и настраивает GitHub Actions
+               для деплоя при пуше в эту ветку.</p>
+          </div>
+        </div>
+        <div class="numbered-step">
+          <div class="n-step-num">02</div>
+          <div class="n-step-body">
+            <h3>Настройка сервера</h3>
+            <p>По SSH CLI обновляет системные пакеты, устанавливает MariaDB, создаёт
+               базу данных и пользователя, импортирует схему по умолчанию и устанавливает
+               Caddy как обратный прокси с автоматическим SSL.</p>
+          </div>
+        </div>
+        <div class="numbered-step">
+          <div class="n-step-num">03</div>
+          <div class="n-step-body">
+            <h3>Настройка CI/CD</h3>
+            <p>Генерируется новая пара ключей ED25519. Приватный ключ загружается в твои форки
+               как секрет GitHub Actions. Публичный ключ добавляется в
+               <code>~/.ssh/authorized_keys</code> на сервере. Последующие пуши в
+               <code>release</code> деплоятся автоматически.</p>
+          </div>
+        </div>
+        <div class="numbered-step">
+          <div class="n-step-num">04</div>
+          <div class="n-step-body">
+            <h3>Запуск бэкенд-сервиса</h3>
+            <p>Бэкенд регистрируется как systemd-сервис (<code>cuento-backend</code>),
+               запускаемый от имени выделенного пользователя <code>cuento</code>.
+               Автоматически перезапускается при сбое и стартует при каждой загрузке.</p>
+          </div>
+        </div>
+        <div class="numbered-step">
+          <div class="n-step-num">05</div>
+          <div class="n-step-body">
+            <h3>Готово</h3>
+            <p>CLI выводит URL твоего деплоя. Экземпляр Cuento запущен, защищён SSL
+               и готов к регистрации первого пользователя.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMANDS -->
+  <section class="cli-section" id="commands">
+    <div class="container">
+      <div class="section-label">команды</div>
+      <h2 class="section-title">Всё, что можно сделать.</h2>
+      <p style="font-size:0.95rem;opacity:0.68;max-width:560px;margin-bottom:0;">
+        Все команды доступны через интерактивное меню — никаких флагов запоминать не нужно.
+        Выбери проект, затем действие.
+      </p>
+
+      <div class="commands-list">
+
+        <div class="command-item">
+          <div>
+            <div class="command-name">Создать</div>
+            <span class="command-badge">интерактивно · с возобновлением</span>
+          </div>
+          <div class="command-desc">
+            <h3>Полная установка</h3>
+            <p>Выполняет все 19+ шагов настройки: форк репозиториев, настройка GitHub Actions,
+               подготовка сервера, установка MariaDB, Caddy и запуск бэкенд-сервиса.
+               При прерывании повторный запуск продолжит с последнего завершённого шага.</p>
+            <ul class="command-steps">
+              <li>Запрашивает GitHub-токен, IP сервера, SSH-данные, домен и параметры БД</li>
+              <li>Форкает <code>cuento-backend</code> и <code>cuento-frontend</code> в твой аккаунт</li>
+              <li>Создаёт и настраивает ветку <code>release</code> в обоих форках</li>
+              <li>Настраивает VPS по SSH, устанавливает все зависимости</li>
+              <li>По завершении выводит URL готового деплоя</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="command-item">
+          <div>
+            <div class="command-name">Обновить</div>
+            <span class="command-badge">интерактивно</span>
+          </div>
+          <div class="command-desc">
+            <h3>Получить изменения из upstream</h3>
+            <p>Сравнивает последний задеплоенный коммит в твоих форках с актуальным upstream.
+               Если схема БД изменилась, генерирует SQL-миграцию и запрашивает подтверждение
+               перед применением. Затем вливает upstream в твою ветку <code>release</code>,
+               запуская новый деплой через GitHub Actions.</p>
+            <ul class="command-steps">
+              <li>Автоматически обнаруживает изменения схемы и генерирует SQL миграции</li>
+              <li>Предупреждает, если изменились <code>main.go</code> или <code>.github/</code></li>
+              <li>Обновляет бэкенд и фронтенд независимо</li>
+              <li>Сохраняет хэши новых задеплоенных коммитов после слияния</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="command-item">
+          <div>
+            <div class="command-name">Добавить пользователя</div>
+            <span class="command-badge">интерактивно</span>
+          </div>
+          <div class="command-desc">
+            <h3>Создать пользователя в базе данных</h3>
+            <p>Создаёт новый аккаунт напрямую в БД. Запрашивает имя пользователя, пароль
+               (скрытый ввод) и права администратора. Пароли хэшируются SHA-256, затем bcrypt.</p>
+          </div>
+        </div>
+
+        <div class="command-item">
+          <div>
+            <div class="command-name">Импорт разрешений</div>
+            <span class="command-badge">автоматически · безопасно повторять</span>
+          </div>
+          <div class="command-desc">
+            <h3>Синхронизировать права ролей</h3>
+            <p>Скачивает актуальный <code>permissions.csv</code> из upstream-бэкенда и
+               импортирует все права ролей в БД через <code>INSERT IGNORE</code> —
+               безопасно запускать несколько раз без дублирования. Запускай после каждого
+               upstream-обновления, меняющего права доступа.</p>
+          </div>
+        </div>
+
+        <div class="command-item">
+          <div>
+            <div class="command-name">Сбросить pipeline</div>
+            <span class="command-badge">автоматически</span>
+          </div>
+          <div class="command-desc">
+            <h3>Повторно применить workflows деплоя</h3>
+            <p>Перезаписывает файлы workflow GitHub Actions в обоих форках на ветках
+               <code>main</code> и <code>release</code>. Используй, если upstream-обновление
+               Cuento изменило CI/CD pipeline или Actions перестал срабатывать.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIG -->
+  <section class="cli-section" id="config">
+    <div class="container">
+      <div class="section-label">конфигурация</div>
+      <h2 class="section-title">Где хранятся данные.</h2>
+      <p style="font-size:0.95rem;opacity:0.68;max-width:580px;margin-bottom:0.25rem;">
+        Все данные проекта сохраняются локально в одном JSON-файле. Файл доступен только
+        текущему пользователю ОС (<code>chmod 700</code>).
+        Никакие данные не покидают твою машину, кроме тех, что отправляются на VPS и GitHub.
+      </p>
+
+      <div class="terminal" style="margin-top:2rem;">
+        <span class="terminal-dots">● ● ●</span>
+        <span class="comment"># macOS</span><br/>
+        <span class="cmd">~/Library/Application Support/cuento/config.json</span><br/>
+        <br/>
+        <span class="comment"># Linux</span><br/>
+        <span class="cmd">~/.config/cuento/config.json</span><br/>
+        <br/>
+        <span class="comment"># Windows</span><br/>
+        <span class="cmd">%AppData%\cuento\config.json</span>
+      </div>
+
+      <p style="font-size:0.9rem;opacity:0.55;margin-top:0.75rem;">
+        Каждый проект хранится как отдельная запись. Из одного CLI можно управлять
+        несколькими независимыми экземплярами Cuento.
+      </p>
+
+      <table class="config-table" style="margin-top:2.5rem;">
+        <thead>
+          <tr>
+            <th>Поле</th>
+            <th>Что хранит</th>
+            <th>Примечание</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>github_token</td>
+            <td>GitHub personal access token</td>
+            <td>Управление форками, секретами и workflows</td>
+          </tr>
+          <tr>
+            <td>github_user</td>
+            <td>Имя пользователя GitHub</td>
+            <td>Определяется автоматически после первой авторизации</td>
+          </tr>
+          <tr>
+            <td>server_ip</td>
+            <td>IP-адрес VPS</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>ssh_user / ssh_pass</td>
+            <td>SSH-данные для входа</td>
+            <td>Используются при установке и обновлениях</td>
+          </tr>
+          <tr>
+            <td>sudo_pass</td>
+            <td>Пароль sudo</td>
+            <td>Нужен для установки пакетов и настройки сервисов</td>
+          </tr>
+          <tr>
+            <td>domain</td>
+            <td>Доменное имя</td>
+            <td>Используется в конфиге Caddy и URL деплоя</td>
+          </tr>
+          <tr>
+            <td>db_root_pass / db_name / db_user / db_pass</td>
+            <td>Данные для подключения к БД</td>
+            <td>Настройка MariaDB и переменные окружения бэкенда</td>
+          </tr>
+          <tr>
+            <td>ssh_priv_key / ssh_pub_key</td>
+            <td>Сгенерированная пара ключей ED25519 (base64)</td>
+            <td>Хранится для возобновления установки</td>
+          </tr>
+          <tr>
+            <td>setup_step</td>
+            <td>Индекс последнего завершённого шага установки</td>
+            <td><code>-1</code> = завершено; положительное = следующий шаг</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- WHAT GOES ON THE SERVER -->
+  <section class="cli-section">
+    <div class="container">
+      <div class="section-label">структура сервера</div>
+      <h2 class="section-title">Что устанавливает CLI.</h2>
+      <p style="font-size:0.95rem;opacity:0.68;max-width:560px;margin-bottom:2rem;">
+        CLI оставляет сервер в чистом стандартном состоянии — никаких кастомных скриптов,
+        никакой привязки. Все компоненты — стандартные пакеты Debian/Ubuntu и upstream-ПО.
+      </p>
+
+      <div class="terminal">
+        <span class="terminal-dots">● ● ●</span>
+        <span class="comment"># Обратный прокси (авто-HTTPS через Let's Encrypt)</span><br/>
+        <span class="cmd">/etc/caddy/Caddyfile</span><br/>
+        <br/>
+        <span class="comment"># Systemd-сервис бэкенда</span><br/>
+        <span class="cmd">/etc/systemd/system/cuento-backend.service</span><br/>
+        <br/>
+        <span class="comment"># Директории приложения</span><br/>
+        <span class="cmd">/var/www/backend/</span><br/>
+        <span class="cmd">/var/www/frontend/</span><br/>
+        <br/>
+        <span class="comment"># Фаервол: открыты порты 22, 80, 443 (UFW)</span>
+      </div>
+
+      <div class="prereq-grid" style="margin-top:2.5rem;">
+        <div class="prereq-card">
+          <span class="prereq-icon">&#128274;</span>
+          <h3>Caddy</h3>
+          <p>Проксирует <code>/api/*</code> и <code>/ws</code> на бэкенд (порт 8080).
+             Отдаёт фронтенд SPA на <code>/</code>. SSL настраивается автоматически.</p>
+        </div>
+        <div class="prereq-card">
+          <span class="prereq-icon">&#128260;</span>
+          <h3>MariaDB</h3>
+          <p>Защищена root-паролем. Создаются выделенная база данных и пользователь.
+             При первом запуске импортируются схема и права по умолчанию.</p>
+        </div>
+        <div class="prereq-card">
+          <span class="prereq-icon">&#9881;</span>
+          <h3>Systemd-сервис</h3>
+          <p>Бэкенд работает от имени пользователя <code>cuento</code>, перезапускается при сбое
+             и стартует автоматически при каждой загрузке.</p>
+        </div>
+        <div class="prereq-card">
+          <span class="prereq-icon">&#128640;</span>
+          <h3>GitHub Actions CI/CD</h3>
+          <p>Пуш в ветку <code>release</code> любого форка запускает автоматический деплой на VPS —
+             никакого ручного SSH после настройки.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <img src="/assets/cuento-claw-full.png" alt="" class="cta-logo" aria-hidden="true" />
+      <h2>Готов запустить собственный мир?</h2>
+      <p>Скачай CLI и запусти Cuento за считанные минуты.</p>
+      <a href="https://github.com/kate-makarova/cuento-cli/releases/latest" class="btn-sketch btn-primary btn-large">Скачать Cuento CLI ↗</a>
+    </div>
+  </section>
