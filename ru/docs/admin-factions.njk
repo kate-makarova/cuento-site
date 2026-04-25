@@ -1,0 +1,116 @@
+---
+title: "Фракции администратора — Документация Cuento"
+---
+
+      <div class="docs-eyebrow">Панель администратора</div>
+      <h1 class="docs-title">Фракции</h1>
+      <p class="docs-lead">
+        Страница фракций позволяет выстроить иерархию групп, к которым могут принадлежать
+        персонажи — дома, гильдии, фракции, расы или любые другие категории, которые требует
+        твой мир. Фракции могут быть вложены на любую глубину через связь родитель–потомок.
+      </p>
+
+      <div class="docs-screenshot">
+        <img src="/assets/screenshots/admin-factions.png" alt="Скриншот страницы фракций администратора" />
+      </div>
+
+      <h2 class="docs-h2">Структура</h2>
+      <p class="docs-p">
+        Фракции образуют дерево. Фракции верхнего уровня имеют <strong>Уровень</strong> <code>0</code>
+        и не имеют Parent ID. Дочерние фракции имеют положительный уровень и Parent ID,
+        указывающий на родителя. Отступы на странице отражают глубину вложенности.
+      </p>
+
+      <h2 class="docs-h2">Поля</h2>
+
+      <div class="field-list">
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Название</div>
+            <div class="field-values">текст</div>
+          </div>
+          <div class="field-desc">
+            Отображаемое название фракции — показывается в анкетах персонажей, списке фракций
+            и везде, где упоминается фракция.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Уровень</div>
+            <div class="field-values">число</div>
+          </div>
+          <div class="field-desc">
+            Глубина фракции в иерархии. <code>0</code> = верхний уровень; <code>1</code> = один уровень ниже и т.д.
+            Устанавливается автоматически при использовании <strong>Добавить дочернюю</strong>
+            и обычно не требует ручного редактирования.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Описание</div>
+            <div class="field-values">текст</div>
+          </div>
+          <div class="field-desc">
+            Необязательное описание фракции, видимое участникам на странице фракции.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Иконка</div>
+            <div class="field-values">текст</div>
+          </div>
+          <div class="field-desc">
+            Необязательный идентификатор иконки или URL изображения, отображаемого рядом с названием фракции.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Parent ID</div>
+            <div class="field-values">число</div>
+          </div>
+          <div class="field-desc">
+            ID родительской фракции. Оставь пустым для фракции верхнего уровня. ID можно найти
+            в URL фракции или по её порядку на этой странице. Изменение этого значения перемещает
+            фракцию (и всех её потомков) к другому родителю.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Показывать в профиле</div>
+            <div class="field-values">флажок</div>
+          </div>
+          <div class="field-desc">
+            Если отмечено, фракция отображается в анкете персонажей, принадлежащих к ней.
+            Снимите флажок, чтобы использовать фракцию для внутренней организации без отображения игрокам.
+          </div>
+        </div>
+
+      </div>
+
+      <h2 class="docs-h2">Действия</h2>
+
+      <div class="field-list">
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Сохранить</div>
+          </div>
+          <div class="field-desc">
+            Сохраняет изменения полей этой фракции. У каждой фракции своя кнопка сохранения.
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Добавить дочернюю</div>
+          </div>
+          <div class="field-desc">
+            Создаёт новую фракцию как прямого потомка этой. Уровень и Parent ID нового элемента
+            заполняются автоматически. Заполни остальные поля и нажми «Сохранить» на новой строке.
+          </div>
+        </div>
+      </div>

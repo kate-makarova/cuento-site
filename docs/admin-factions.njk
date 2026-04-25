@@ -1,0 +1,114 @@
+---
+title: "Admin Factions — Cuento Docs"
+---
+
+      <div class="docs-eyebrow">Admin Panel</div>
+      <h1 class="docs-title">Factions</h1>
+      <p class="docs-lead">
+        The Factions page lets you build a hierarchy of groups that characters can belong to —
+        houses, guilds, factions, species, or any other category your world requires.
+        Factions can be nested to any depth using parent–child relationships.
+      </p>
+
+      <div class="docs-screenshot">
+        <img src="/assets/screenshots/admin-factions.png" alt="Admin Factions page screenshot" />
+      </div>
+
+      <h2 class="docs-h2">Structure</h2>
+      <p class="docs-p">
+        Factions form a tree. Top-level factions have a <strong>Level</strong> of <code>0</code>
+        and no Parent ID. Child factions have a positive level and a Parent ID pointing to their
+        parent. The indentation on the page reflects the nesting depth.
+      </p>
+
+      <h2 class="docs-h2">Fields</h2>
+
+      <div class="field-list">
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Name</div>
+            <div class="field-values">text</div>
+          </div>
+          <div class="field-desc">
+            The display name of the faction, shown on character profiles, the faction list, and anywhere factions are referenced.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Level</div>
+            <div class="field-values">number</div>
+          </div>
+          <div class="field-desc">
+            The depth of this faction in the hierarchy. <code>0</code> = top-level; <code>1</code> = one level down, and so on.
+            This is set automatically when you use <strong>Add Child</strong> and does not normally need to be edited manually.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Description</div>
+            <div class="field-values">text</div>
+          </div>
+          <div class="field-desc">
+            An optional description of the faction, visible to members on the faction's page.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Icon</div>
+            <div class="field-values">text</div>
+          </div>
+          <div class="field-desc">
+            An optional icon identifier or image URL displayed alongside the faction name.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Parent ID</div>
+            <div class="field-values">number</div>
+          </div>
+          <div class="field-desc">
+            The ID of this faction's parent. Leave empty for a top-level faction. You can find a
+            faction's ID in its URL or by noting its position on this page. Changing this value
+            moves the faction (and all its children) to a different parent.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Show on profile</div>
+            <div class="field-values">checkbox</div>
+          </div>
+          <div class="field-desc">
+            When checked, this faction is displayed on the character profiles of members who belong to it.
+            Uncheck to use the faction for internal organisation without surfacing it to players.
+          </div>
+        </div>
+
+      </div>
+
+      <h2 class="docs-h2">Actions</h2>
+
+      <div class="field-list">
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Save</div>
+          </div>
+          <div class="field-desc">
+            Saves changes to that faction's fields. Each faction has its own Save button.
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Add Child</div>
+          </div>
+          <div class="field-desc">
+            Creates a new faction as a direct child of this one. The child's Level and Parent ID
+            are pre-filled automatically. Fill in the remaining fields and click Save on the new row.
+          </div>
+        </div>
+      </div>

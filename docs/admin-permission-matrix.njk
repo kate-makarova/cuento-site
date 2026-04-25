@@ -1,0 +1,111 @@
+---
+title: "Permission Matrix — Cuento Docs"
+---
+
+      <div class="docs-eyebrow">Admin Panel</div>
+      <h1 class="docs-title">Permission Matrix</h1>
+      <p class="docs-lead">
+        The Permission Matrix gives you fine-grained control over what each role can do.
+        It is split into two sections: <strong>Endpoint Permissions</strong>, which govern
+        access to API actions site-wide, and <strong>Subforum Permissions</strong>, which
+        govern what each role can do inside each individual subforum.
+      </p>
+
+      <h2 class="docs-h2">Roles</h2>
+      <p class="docs-p">
+        Both matrices use the same three roles:
+      </p>
+      <div class="field-list">
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">guest</div></div>
+          <div class="field-desc">Unregistered visitors.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">user</div></div>
+          <div class="field-desc">Logged-in registered members.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">admin</div></div>
+          <div class="field-desc">Administrators with full site access.</div>
+        </div>
+      </div>
+
+      <p class="docs-p">
+        Check a box to grant the permission to that role; uncheck to revoke it.
+        Changes take effect immediately after saving.
+      </p>
+
+      <h2 class="docs-h2">Endpoint Permissions</h2>
+
+      <div class="docs-screenshot">
+        <img src="/assets/screenshots/admin-permission-matrix-endpoints.png" alt="Endpoint Permission Matrix screenshot" />
+      </div>
+
+      <p class="docs-p">
+        Endpoint permissions control access to individual API actions across the entire site,
+        regardless of which subforum a member is in. Each row is one action — browsing pages,
+        creating characters, managing factions, handling currency transactions, posting, and more.
+      </p>
+      <p class="docs-p">
+        Use this matrix to answer questions like: <em>can guests browse character lists?</em>
+        or <em>can regular users update currency amounts?</em>
+      </p>
+
+      <div class="callout">
+        Admin is typically checked for every endpoint. Be cautious when granting
+        sensitive actions (currency management, global settings) to guest or user roles.
+      </div>
+
+      <h2 class="docs-h2">Subforum Permissions</h2>
+
+      <div class="docs-screenshot">
+        <img src="/assets/screenshots/admin-permission-matrix-subforums.png" alt="Subforum Permission Matrix screenshot" />
+      </div>
+
+      <p class="docs-p">
+        Subforum permissions are scoped per subforum — each subforum gets its own block of rows.
+        This lets you have different rules for different boards: guests might be able to view
+        one subforum but not another, or users might be able to post in general topics but
+        not create character topics in a restricted area.
+      </p>
+
+      <p class="docs-p">The per-subforum actions available are:</p>
+
+      <div class="field-list">
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">View subforum</div></div>
+          <div class="field-desc">Whether the role can see this subforum and its topic list at all.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">Post in subforum</div></div>
+          <div class="field-desc">Whether the role can reply to existing topics.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">Create general topic</div></div>
+          <div class="field-desc">Whether the role can start a new out-of-character thread.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">Create character topic</div></div>
+          <div class="field-desc">Whether the role can create a new character sheet thread.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">Create wanted character topic</div></div>
+          <div class="field-desc">Whether the role can post a wanted character listing.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">Create episode topic</div></div>
+          <div class="field-desc">Whether the role can start a new in-character game thread.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">Edit own post / Edit others' post</div></div>
+          <div class="field-desc">Whether the role can edit their own posts, or posts written by other members.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">Edit own topic / Edit others' topic</div></div>
+          <div class="field-desc">Whether the role can edit the topic header of their own threads, or others'.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">Delete own topic / Delete others' topic</div></div>
+          <div class="field-desc">Whether the role can delete threads they started, or threads started by others.</div>
+        </div>
+      </div>

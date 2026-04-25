@@ -1,0 +1,87 @@
+---
+title: "Редактор шаблона эпизода — Документация Cuento"
+---
+
+      <div class="docs-eyebrow">Панель администратора</div>
+      <h1 class="docs-title">Редактор шаблона эпизода</h1>
+      <p class="docs-lead">
+        Редактор шаблона эпизода определяет поля, отображаемые в игровых темах (эпизодах) —
+        структурированную шапку в начале внутриигровых тредов. Используй его для метаданных,
+        относящихся к треду в целом: обложка, временной период, краткое описание эпизода.
+      </p>
+
+      <div class="docs-screenshot">
+        <img src="/assets/screenshots/admin-game-header-template.png" alt="Скриншот редактора шаблона эпизода" />
+      </div>
+
+      <h2 class="docs-h2">Принцип работы</h2>
+      <p class="docs-p">
+        Интерфейс идентичен
+        <a href="/ru/docs/admin-character-template/" class="docs-link">редактору шаблона персонажа</a>.
+        Каждая строка задаёт одно поле; порядок строк определяет порядок полей в шапке эпизода.
+        При создании новой игровой темы участник заполняет эти поля до начала треда.
+      </p>
+
+      <div class="callout">
+        Переименование <strong>машинного имени поля</strong> после создания эпизодов разрывает
+        связь с сохранёнными данными. Считай машинные имена постоянными после создания эпизодов.
+      </div>
+
+      <h2 class="docs-h2">Свойства полей</h2>
+      <p class="docs-p">
+        Все свойства полей идентичны
+        <a href="/ru/docs/admin-character-template/" class="docs-link">редактору шаблона персонажа</a>.
+        Описание машинного имени, отображаемого имени, типа поля, типа содержимого, порядка,
+        ширины и высоты смотри на той странице.
+      </p>
+
+      <h2 class="docs-h2">Пример шаблона</h2>
+      <p class="docs-p">
+        Типичная шапка эпизода может содержать следующие поля:
+      </p>
+
+      <table class="docs-table" style="margin-top: 1rem;">
+        <thead>
+          <tr>
+            <th>Машинное имя</th>
+            <th>Отображаемое имя</th>
+            <th>Тип поля</th>
+            <th>Тип содержимого</th>
+            <th>Порядок</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>image</code></td><td>Обложка</td><td>string</td><td>cropped_image</td><td>1</td></tr>
+          <tr><td><code>episode_type</code></td><td>Таймлайн</td><td>string</td><td>short_text</td><td>2</td></tr>
+          <tr><td><code>description</code></td><td>Описание эпизода</td><td>text</td><td>long_text</td><td>3</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="docs-h2">Управление полями</h2>
+
+      <div class="field-list">
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Добавить поле</div>
+          </div>
+          <div class="field-desc">
+            Добавляет новую пустую строку поля. Заполни все свойства перед сохранением.
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Удалить</div>
+          </div>
+          <div class="field-desc">
+            Убирает поле из редактора. Изменение не становится постоянным до нажатия <strong>Сохранить</strong>.
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Сохранить</div>
+          </div>
+          <div class="field-desc">
+            Сохраняет весь шаблон эпизода за один раз.
+          </div>
+        </div>
+      </div>

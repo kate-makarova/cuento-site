@@ -1,0 +1,113 @@
+---
+title: "Матрица прав — Документация Cuento"
+---
+
+      <div class="docs-eyebrow">Панель администратора</div>
+      <h1 class="docs-title">Матрица прав</h1>
+      <p class="docs-lead">
+        Матрица прав даёт детальный контроль над тем, что может делать каждая роль.
+        Она разделена на два раздела: <strong>Права эндпоинтов</strong> — управляют
+        доступом к API-действиям в рамках всего сайта, и <strong>Права подфорумов</strong> —
+        управляют тем, что каждая роль может делать внутри каждого отдельного подфорума.
+      </p>
+
+      <h2 class="docs-h2">Роли</h2>
+      <p class="docs-p">
+        Обе матрицы используют одни и те же три роли:
+      </p>
+      <div class="field-list">
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">guest</div></div>
+          <div class="field-desc">Незарегистрированные посетители.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">user</div></div>
+          <div class="field-desc">Авторизованные зарегистрированные участники.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">admin</div></div>
+          <div class="field-desc">Администраторы с полным доступом к сайту.</div>
+        </div>
+      </div>
+
+      <p class="docs-p">
+        Поставь флажок, чтобы выдать право роли; снимите — чтобы отозвать.
+        Изменения вступают в силу сразу после сохранения.
+      </p>
+
+      <h2 class="docs-h2">Права эндпоинтов</h2>
+
+      <div class="docs-screenshot">
+        <img src="/assets/screenshots/admin-permission-matrix-endpoints.png" alt="Скриншот матрицы прав эндпоинтов" />
+      </div>
+
+      <p class="docs-p">
+        Права эндпоинтов управляют доступом к отдельным API-действиям по всему сайту,
+        независимо от того, в каком подфоруме находится участник. Каждая строка — одно
+        действие: просмотр страниц, создание персонажей, управление фракциями, операции
+        с валютой, посты и многое другое.
+      </p>
+      <p class="docs-p">
+        Используй эту матрицу, чтобы ответить на вопросы: <em>могут ли гости просматривать
+        список персонажей?</em> или <em>могут ли обычные пользователи изменять количество
+        валюты?</em>
+      </p>
+
+      <div class="callout">
+        Для администратора обычно отмечены все эндпоинты. Будь осторожен при выдаче
+        чувствительных прав (управление валютой, глобальные настройки) ролям guest или user.
+      </div>
+
+      <h2 class="docs-h2">Права подфорумов</h2>
+
+      <div class="docs-screenshot">
+        <img src="/assets/screenshots/admin-permission-matrix-subforums.png" alt="Скриншот матрицы прав подфорумов" />
+      </div>
+
+      <p class="docs-p">
+        Права подфорумов привязаны к конкретному подфоруму — у каждого свой блок строк.
+        Это позволяет задавать разные правила для разных досок: гости могут видеть один
+        подфорум, но не другой; пользователи могут писать в общих темах, но не создавать
+        темы персонажей в закрытой зоне.
+      </p>
+
+      <p class="docs-p">Доступные действия для каждого подфорума:</p>
+
+      <div class="field-list">
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">Просматривать подфорум</div></div>
+          <div class="field-desc">Может ли роль видеть этот подфорум и его список тем.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">Писать в подфоруме</div></div>
+          <div class="field-desc">Может ли роль отвечать в существующих темах.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">Создавать общую тему</div></div>
+          <div class="field-desc">Может ли роль начинать новый внеигровой тред.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">Создавать тему персонажа</div></div>
+          <div class="field-desc">Может ли роль создавать тред с анкетой персонажа.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">Создавать тему желаемого персонажа</div></div>
+          <div class="field-desc">Может ли роль публиковать объявление о желаемом персонаже.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">Создавать тему эпизода</div></div>
+          <div class="field-desc">Может ли роль начинать новый внутриигровой тред.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">Редактировать свой пост / чужой пост</div></div>
+          <div class="field-desc">Может ли роль редактировать свои посты или посты других участников.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">Редактировать свою тему / чужую тему</div></div>
+          <div class="field-desc">Может ли роль редактировать шапку своих тредов или чужих.</div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta"><div class="field-name">Удалять свою тему / чужую тему</div></div>
+          <div class="field-desc">Может ли роль удалять созданные ею треды или треды других участников.</div>
+        </div>
+      </div>
