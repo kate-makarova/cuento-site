@@ -19,12 +19,14 @@
       <img src="/assets/cuento-claw-full.png" alt="Cuento" class="nav-logo-img" />
       <span>Cuento</span>
     </a>
+    {% set enUrl = page.url | replace("/ru/", "/") %}
     {% if navStyle == "main" %}
     <div class="nav-links">
       <a href="/ru/#features">Возможности</a>
       <a href="/ru/#open-source">Открытый код</a>
       <a href="/ru/cli/">CLI</a>
       <a href="/ru/docs/">Документация</a>
+      <a href="{{ enUrl }}" class="nav-lang">EN</a>
       <a href="https://github.com/topics/cuento-pbp" class="btn-sketch btn-small">GitHub ↗</a>
     </div>
     {% elif navStyle == "cli" %}
@@ -32,12 +34,14 @@
       <a href="#install">Установка</a>
       <a href="#commands">Команды</a>
       <a href="#config">Конфигурация</a>
+      <a href="{{ enUrl }}" class="nav-lang">EN</a>
       <a href="https://github.com/kate-makarova/cuento-cli/releases/latest" class="btn-sketch btn-small">Скачать ↗</a>
     </div>
     {% elif navStyle == "docs" %}
     <div class="nav-links">
       <a href="/ru/docs/">Документация</a>
       <a href="/ru/cli/">CLI</a>
+      <a href="{{ enUrl }}" class="nav-lang">EN</a>
     </div>
     {% endif %}
   </nav>
@@ -51,6 +55,7 @@
         <a href="https://github.com/topics/cuento-pbp">GitHub</a>
         <a href="/ru/docs/">Документация</a>
         <a href="/ru/cli/">CLI</a>
+        <a href="/ru/docs/privacy-policy/">Политика конфиденциальности</a>
       </div>
       <span class="footer-copy">Создано с чернилами и воображением.</span>
     </div>

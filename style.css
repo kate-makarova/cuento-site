@@ -133,6 +133,13 @@ a { color: inherit; text-decoration: none; }
 }
 .nav-links a:not(.btn-sketch):hover::after { width: 100%; }
 
+.nav-lang {
+  opacity: 0.45;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.08em;
+}
+.nav-lang:hover { opacity: 1; }
+
 /* ── Section labels ───────────────────────────────────────── */
 .section-label {
   font-family: var(--font-hand);
