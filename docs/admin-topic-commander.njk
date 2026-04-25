@@ -1,0 +1,103 @@
+---
+title: "Topic Commander — Cuento Docs"
+---
+
+      <div class="docs-eyebrow">Admin Panel</div>
+      <h1 class="docs-title">Topic Commander</h1>
+      <p class="docs-lead">
+        Topic Commander gives you a side-by-side view of any two subforums so you can
+        browse, select, and move topics in bulk without opening each one individually.
+        It is the fastest way to reorganise content after a board restructure.
+      </p>
+
+      <div class="docs-screenshot">
+        <img src="/assets/screenshots/admin-topic-commander.png" alt="Topic Commander screenshot" />
+      </div>
+
+      <h2 class="docs-h2">The two-panel layout</h2>
+      <p class="docs-p">
+        The page is split into a <strong>left panel</strong> and a <strong>right panel</strong>.
+        Both panels work identically and independently. Each one starts by showing the
+        full subforum list, grouped by category, with the topic count next to each subforum name.
+      </p>
+      <p class="docs-p">
+        Click any subforum name to open it in that panel. The panel switches to a topic list,
+        showing each topic's name and its post count. Click <strong>[..]</strong> to go back
+        to the subforum list.
+      </p>
+
+      <h2 class="docs-h2">Selecting topics</h2>
+      <p class="docs-p">
+        Click a topic row to toggle its selection. Selected topics are marked with
+        <code>[x]</code>; unselected topics show <code>[ ]</code>. You can select as
+        many topics as you need across the panel before applying an action.
+      </p>
+
+      <h2 class="docs-h2">Actions</h2>
+
+      <div class="field-list">
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Move →&nbsp;/&nbsp;← Move</div>
+          </div>
+          <div class="field-desc">
+            Moves all selected topics from one panel to the subforum open in the other panel.
+            Both panels must be showing a topic list (not the subforum index) for the Move
+            buttons to become active. After a successful move, both panels reload to reflect
+            the new state.
+            <ul class="docs-list">
+              <li>Select topics in the <strong>left</strong> panel, then click <strong>Move →</strong> to move them into the subforum open in the right panel.</li>
+              <li>Select topics in the <strong>right</strong> panel, then click <strong>← Move</strong> to move them into the subforum open in the left panel.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Open</div>
+          </div>
+          <div class="field-desc">
+            Re-opens selected topics so members can post in them again. Use this to
+            lift a lock placed by the Close action.
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Close</div>
+          </div>
+          <div class="field-desc">
+            Locks selected topics so members can no longer post replies. The topics remain
+            visible and readable — only new posts are prevented. Useful for archiving
+            completed story arcs or pinned announcements that should not be replied to.
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Delete</div>
+          </div>
+          <div class="field-desc">
+            Permanently deletes all selected topics and their posts. This cannot be undone.
+            Double-check your selection before clicking Delete.
+          </div>
+        </div>
+      </div>
+
+      <h2 class="docs-h2">Typical workflow — moving topics</h2>
+
+      <div class="numbered-flow">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div class="flow-body">Open the source subforum in the left panel by clicking its name.</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div class="flow-body">Open the destination subforum in the right panel.</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div class="flow-body">Click the topics you want to move in the left panel to select them.</div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">4</div>
+          <div class="flow-body">Click <strong>Move →</strong>. The topics are moved and both panels refresh.</div>
+        </div>
+      </div>

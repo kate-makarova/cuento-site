@@ -1,0 +1,20 @@
+---
+layout: base.njk
+---
+<div class="docs-layout">
+
+  <aside class="docs-sidebar">
+    <div class="sidebar-label">Admin</div>
+    <nav class="sidebar-nav">
+      <a href="/docs/admin-settings/" class="sidebar-link{% if page.url == '/docs/admin-settings/' %} active{% endif %}">Settings</a>
+      <a href="/docs/admin-subforums/" class="sidebar-link{% if page.url == '/docs/admin-subforums/' %} active{% endif %}">Subforums</a>
+      <a href="/docs/admin-topic-commander/" class="sidebar-link{% if page.url == '/docs/admin-topic-commander/' %} active{% endif %}">Topic Commander</a>
+      <a href="/docs/admin-character-template/" class="sidebar-link{% if page.url == '/docs/admin-character-template/' %} active{% endif %}">Character Template</a>
+    </nav>
+  </aside>
+
+  <main class="docs-content">
+    {{ content | safe }}
+  </main>
+
+</div>

@@ -1,0 +1,149 @@
+---
+title: "Admin Settings — Cuento Docs"
+---
+
+      <div class="docs-eyebrow">Admin Panel</div>
+      <h1 class="docs-title">Settings</h1>
+      <p class="docs-lead">
+        The Settings page controls site-wide behaviour — who can do what, how content
+        is displayed, and how external services are connected. Changes take effect
+        immediately after saving.
+      </p>
+
+      <div class="docs-screenshot">
+        <img src="/assets/screenshots/admin-settings.png" alt="Admin Settings page screenshot" />
+      </div>
+
+      <h2 class="docs-h2">Fields</h2>
+
+      <div class="field-list">
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Site name</div>
+            <div class="field-values">text</div>
+          </div>
+          <div class="field-desc">
+            The display name of your Cuento instance. Shown in the browser tab, header,
+            and anywhere the site refers to itself by name.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Posts per page</div>
+            <div class="field-values">number</div>
+          </div>
+          <div class="field-desc">
+            How many posts are shown per page inside a topic thread. Lower values load
+            faster; higher values let readers scroll through long threads without
+            clicking through pages. Default is <code>20</code>.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">ImgBB API key</div>
+            <div class="field-values">text</div>
+          </div>
+          <div class="field-desc">
+            API key for <a href="https://imgbb.com" class="docs-link">ImgBB</a>, the image hosting
+            service used when members upload images through the post editor. Without a valid key
+            image uploads will fail. Obtain a free key from your ImgBB account dashboard.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Render navlinks after header panel</div>
+            <div class="field-values"><span class="val">y</span> / <span class="val">n</span></div>
+          </div>
+          <div class="field-desc">
+            Controls where the navigation links appear relative to the header panel.
+            Set to <code>y</code> to render nav links below the header image/banner;
+            set to <code>n</code> to render them above it (default).
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Allow adding factions at character creation</div>
+            <div class="field-values"><span class="val">y</span> / <span class="val">n</span></div>
+          </div>
+          <div class="field-desc">
+            When set to <code>y</code>, members can assign their new character to a faction
+            during the character creation flow. Set to <code>n</code> to hide that option —
+            useful if factions are invite-only or assigned by admins.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Allow users to create factions</div>
+            <div class="field-values"><span class="val">y</span> / <span class="val">n</span></div>
+          </div>
+          <div class="field-desc">
+            Lets logged-in members create new factions. Set to <code>n</code> to restrict
+            faction creation to admins only.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Allow guests to create factions</div>
+            <div class="field-values"><span class="val">y</span> / <span class="val">n</span></div>
+          </div>
+          <div class="field-desc">
+            Lets unregistered visitors create factions. This is independent of the
+            user-level setting above — a guest-facing board may have looser rules
+            while requiring registration for persistent play.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Allow users to create claims</div>
+            <div class="field-values"><span class="val">y</span> / <span class="val">n</span></div>
+          </div>
+          <div class="field-desc">
+            Lets logged-in members submit claims (requests to play specific characters).
+            Set to <code>n</code> if claims are managed entirely by staff.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Allow guests to create claims</div>
+            <div class="field-values"><span class="val">y</span> / <span class="val">n</span></div>
+          </div>
+          <div class="field-desc">
+            Lets unregistered visitors submit character claims. Useful for open-application
+            roleplay boards where registration follows a successful claim.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Allow wanted characters for claims</div>
+            <div class="field-values">
+              <span class="val">y</span> / <span class="val">n</span> / <span class="val">moderated</span>
+            </div>
+          </div>
+          <div class="field-desc">
+            Controls whether members can claim characters from the Wanted Characters list.
+            <ul class="docs-list">
+              <li><code>y</code> — anyone who meets the claim rules can claim a wanted character directly.</li>
+              <li><code>n</code> — wanted characters cannot be claimed through the normal claim flow.</li>
+              <li><code>moderated</code> — claims on wanted characters are submitted for staff review before being approved.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <h2 class="docs-h2">Saving</h2>
+      <p class="docs-p">
+        Click <strong>Save</strong> at the bottom of the page to apply all changes at once.
+        All fields are saved together — there is no per-field save. The button briefly
+        shows a confirmation state and then returns to idle.
+      </p>

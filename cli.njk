@@ -1,0 +1,378 @@
+---
+title: "Cuento CLI — Deploy Your Own Instance"
+layout: base.njk
+navStyle: cli
+extraCss:
+  - /cli.css
+---
+
+  <!-- HERO -->
+  <section class="cli-hero">
+    <div class="container">
+      <p class="hero-eyebrow">command-line tool · self-hosted</p>
+      <h1 class="hero-title">Deploy Cuento<br/>in minutes.</h1>
+      <p class="hero-sub">
+        The Cuento CLI handles everything — forking repos, provisioning your VPS,
+        installing the database, wiring up SSL, and keeping your instance up to date —
+        all from an interactive terminal menu.
+      </p>
+      <div class="download-group">
+        <a href="https://github.com/kate-makarova/cuento-cli/releases/latest" class="btn-sketch btn-primary">Download for macOS ↗</a>
+        <a href="https://github.com/kate-makarova/cuento-cli/releases/latest" class="btn-sketch btn-secondary">Download for Windows ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTALL -->
+  <section class="cli-section" id="install">
+    <div class="container">
+      <div class="section-label">getting started</div>
+      <h2 class="section-title">Install &amp; run.</h2>
+      <p style="font-size:0.95rem;opacity:0.68;max-width:560px;margin-bottom:0.5rem;">
+        The CLI is a single binary — no runtime, no dependencies to install on your machine.
+        Download the binary for your OS, make it executable, and run it.
+      </p>
+
+      <div class="terminal">
+        <span class="terminal-dots">● ● ●</span>
+        <span class="prompt">$ </span><span class="cmd">xattr -d com.apple.quarantine cuento-cli-mac</span><br/>
+        <span class="prompt">$ </span><span class="cmd">chmod +x cuento-cli-mac</span><br/>
+        <span class="prompt">$ </span><span class="cmd">./cuento-cli-mac</span><br/>
+        <br/>
+        <span class="comment"># A project-selection menu appears — that's it.</span>
+      </div>
+
+      <div class="section-label" style="margin-top:3rem;">prerequisites</div>
+      <p style="font-size:0.95rem;opacity:0.68;max-width:560px;margin-bottom:0;">
+        Before running the CLI, have the following ready.
+      </p>
+
+      <div class="prereq-grid">
+        <div class="prereq-card">
+          <span class="prereq-icon">&#128039;</span>
+          <h3>GitHub Account</h3>
+          <p>A GitHub account — the CLI will fork the Cuento repositories into it and use it to manage deployments.</p>
+        </div>
+        <div class="prereq-card">
+          <span class="prereq-icon">&#127757;</span>
+          <h3>A VPS</h3>
+          <p>A Debian or Ubuntu server (1 CPU, 1 GB RAM minimum) with SSH access — root or sudo user.</p>
+        </div>
+        <div class="prereq-card">
+          <span class="prereq-icon">&#127760;</span>
+          <h3>A Domain</h3>
+          <p>A domain name with its A record already pointing to your server's IP address.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="cli-section" id="how">
+    <div class="container">
+      <div class="section-label">how it works</div>
+      <h2 class="section-title">From zero to running instance.</h2>
+      <p style="font-size:0.95rem;opacity:0.68;max-width:560px;margin-bottom:0;">
+        The CLI walks you through everything interactively. Run it, pick <em>Add new project</em>,
+        answer the prompts, and watch the setup proceed step by step — with full resumption support
+        if anything is interrupted.
+      </p>
+
+      <div class="numbered-steps">
+        <div class="numbered-step">
+          <div class="n-step-num">01</div>
+          <div class="n-step-body">
+            <h3>Fork the repositories</h3>
+            <p>The CLI forks the upstream Cuento backend and frontend into your GitHub account,
+               creates a <code>release</code> branch in each, and updates the GitHub Actions
+               workflows to deploy on push to that branch.</p>
+          </div>
+        </div>
+        <div class="numbered-step">
+          <div class="n-step-num">02</div>
+          <div class="n-step-body">
+            <h3>Provision the server</h3>
+            <p>Over SSH, the CLI updates system packages, installs MariaDB, creates your
+               database and user, imports the default schema, and installs Caddy as a
+               reverse proxy with automatic SSL.</p>
+          </div>
+        </div>
+        <div class="numbered-step">
+          <div class="n-step-num">03</div>
+          <div class="n-step-body">
+            <h3>Wire up CI/CD</h3>
+            <p>A fresh ED25519 key pair is generated. The private key is uploaded to your forks
+               as a GitHub Actions secret. The public key is appended to
+               <code>~/.ssh/authorized_keys</code> on the server. Future pushes to
+               <code>release</code> deploy automatically.</p>
+          </div>
+        </div>
+        <div class="numbered-step">
+          <div class="n-step-num">04</div>
+          <div class="n-step-body">
+            <h3>Start the backend service</h3>
+            <p>The backend is registered as a systemd service (<code>cuento-backend</code>)
+               running as a dedicated <code>cuento</code> user. It restarts automatically on
+               failure and starts on every boot.</p>
+          </div>
+        </div>
+        <div class="numbered-step">
+          <div class="n-step-num">05</div>
+          <div class="n-step-body">
+            <h3>Ready</h3>
+            <p>The CLI prints your deployment URL. Your Cuento instance is live, SSL-secured,
+               and ready for the first user to register.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMANDS -->
+  <section class="cli-section" id="commands">
+    <div class="container">
+      <div class="section-label">commands</div>
+      <h2 class="section-title">Everything you can do.</h2>
+      <p style="font-size:0.95rem;opacity:0.68;max-width:560px;margin-bottom:0;">
+        All commands are accessed through the interactive menu — no flags to memorise.
+        Select a project, then choose an action.
+      </p>
+
+      <div class="commands-list">
+
+        <div class="command-item">
+          <div>
+            <div class="command-name">Create</div>
+            <span class="command-badge">interactive · resumable</span>
+          </div>
+          <div class="command-desc">
+            <h3>Full deployment setup</h3>
+            <p>Runs all 19+ setup steps end-to-end: fork repos, configure GitHub Actions,
+               provision the server, set up MariaDB, install Caddy, and start the backend
+               service. If interrupted at any point, re-running picks up from the last
+               completed step.</p>
+            <ul class="command-steps">
+              <li>Prompts for GitHub token, server IP, SSH credentials, domain, and DB details</li>
+              <li>Forks <code>cuento-backend</code> and <code>cuento-frontend</code> to your account</li>
+              <li>Creates and configures a <code>release</code> branch in both forks</li>
+              <li>Provisions the VPS over SSH, installs all dependencies</li>
+              <li>Outputs the live deployment URL on completion</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="command-item">
+          <div>
+            <div class="command-name">Update</div>
+            <span class="command-badge">interactive</span>
+          </div>
+          <div class="command-desc">
+            <h3>Pull upstream changes</h3>
+            <p>Compares the last deployed commit in your forks against the latest upstream.
+               If the database schema changed, it generates migration SQL and asks for
+               confirmation before applying. Then merges upstream into your
+               <code>release</code> branch to trigger a fresh deploy via GitHub Actions.</p>
+            <ul class="command-steps">
+              <li>Detects schema changes and generates migration SQL automatically</li>
+              <li>Warns if <code>main.go</code> or <code>.github/</code> changed (may need follow-up steps)</li>
+              <li>Merges backend and frontend independently</li>
+              <li>Records new deployed commit hashes after merge</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="command-item">
+          <div>
+            <div class="command-name">Add User</div>
+            <span class="command-badge">interactive</span>
+          </div>
+          <div class="command-desc">
+            <h3>Create a database user</h3>
+            <p>Creates a new account directly in the database. Prompts for username, password
+               (hidden input), and whether to grant admin privileges. Passwords are hashed
+               with SHA-256 then bcrypt before storage.</p>
+          </div>
+        </div>
+
+        <div class="command-item">
+          <div>
+            <div class="command-name">Import Permissions</div>
+            <span class="command-badge">automatic · safe to repeat</span>
+          </div>
+          <div class="command-desc">
+            <h3>Sync role permissions</h3>
+            <p>Fetches the latest <code>permissions.csv</code> from the upstream backend and
+               imports all role-permission mappings into your database using
+               <code>INSERT IGNORE</code> — safe to run multiple times without creating
+               duplicates. Run this after any upstream update that changes permissions.</p>
+          </div>
+        </div>
+
+        <div class="command-item">
+          <div>
+            <div class="command-name">Reset Pipeline</div>
+            <span class="command-badge">automatic</span>
+          </div>
+          <div class="command-desc">
+            <h3>Re-apply deployment workflows</h3>
+            <p>Re-writes the GitHub Actions workflow files in both forks on both
+               <code>main</code> and <code>release</code> branches. Use this if a Cuento
+               upstream update changes the CI/CD pipeline, or if your Actions stopped
+               triggering correctly.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIG -->
+  <section class="cli-section" id="config">
+    <div class="container">
+      <div class="section-label">configuration</div>
+      <h2 class="section-title">Where things are stored.</h2>
+      <p style="font-size:0.95rem;opacity:0.68;max-width:580px;margin-bottom:0.25rem;">
+        All project data is saved locally in a single JSON file. The file is
+        readable only by the current OS user (<code>chmod 700</code>).
+        No data ever leaves your machine except what goes to your VPS and GitHub.
+      </p>
+
+      <div class="terminal" style="margin-top:2rem;">
+        <span class="terminal-dots">● ● ●</span>
+        <span class="comment"># macOS</span><br/>
+        <span class="cmd">~/Library/Application Support/cuento/config.json</span><br/>
+        <br/>
+        <span class="comment"># Linux</span><br/>
+        <span class="cmd">~/.config/cuento/config.json</span><br/>
+        <br/>
+        <span class="comment"># Windows</span><br/>
+        <span class="cmd">%AppData%\cuento\config.json</span>
+      </div>
+
+      <p style="font-size:0.9rem;opacity:0.55;margin-top:0.75rem;">
+        Each project is stored as a named entry. You can manage multiple independent
+        Cuento instances from the same CLI.
+      </p>
+
+      <table class="config-table" style="margin-top:2.5rem;">
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>What it stores</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>github_token</td>
+            <td>Your GitHub personal access token</td>
+            <td>Used to manage forks, secrets, and workflows</td>
+          </tr>
+          <tr>
+            <td>github_user</td>
+            <td>Your GitHub username</td>
+            <td>Resolved automatically after first auth</td>
+          </tr>
+          <tr>
+            <td>server_ip</td>
+            <td>VPS IP address</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>ssh_user / ssh_pass</td>
+            <td>SSH login credentials</td>
+            <td>Used to connect during setup and updates</td>
+          </tr>
+          <tr>
+            <td>sudo_pass</td>
+            <td>Sudo password</td>
+            <td>Required for package installation and service setup</td>
+          </tr>
+          <tr>
+            <td>domain</td>
+            <td>Domain name</td>
+            <td>Used in Caddy config and deployment URL</td>
+          </tr>
+          <tr>
+            <td>db_root_pass / db_name / db_user / db_pass</td>
+            <td>Database credentials</td>
+            <td>MariaDB setup and backend service env vars</td>
+          </tr>
+          <tr>
+            <td>ssh_priv_key / ssh_pub_key</td>
+            <td>Generated ED25519 key pair (base64)</td>
+            <td>Stored during setup to allow step resumption</td>
+          </tr>
+          <tr>
+            <td>setup_step</td>
+            <td>Last completed setup step index</td>
+            <td><code>-1</code> = complete; positive = next step to run</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- WHAT GOES ON THE SERVER -->
+  <section class="cli-section">
+    <div class="container">
+      <div class="section-label">server layout</div>
+      <h2 class="section-title">What the CLI installs.</h2>
+      <p style="font-size:0.95rem;opacity:0.68;max-width:560px;margin-bottom:2rem;">
+        The CLI leaves your server in a clean, standard state — no custom scripts,
+        no lock-in. All components are stock Debian/Ubuntu packages and upstream software.
+      </p>
+
+      <div class="terminal">
+        <span class="terminal-dots">● ● ●</span>
+        <span class="comment"># Reverse proxy (auto-HTTPS via Let's Encrypt)</span><br/>
+        <span class="cmd">/etc/caddy/Caddyfile</span><br/>
+        <br/>
+        <span class="comment"># Backend systemd service</span><br/>
+        <span class="cmd">/etc/systemd/system/cuento-backend.service</span><br/>
+        <br/>
+        <span class="comment"># Application directories</span><br/>
+        <span class="cmd">/var/www/backend/</span><br/>
+        <span class="cmd">/var/www/frontend/</span><br/>
+        <br/>
+        <span class="comment"># Firewall: ports 22, 80, 443 allowed (UFW)</span>
+      </div>
+
+      <div class="prereq-grid" style="margin-top:2.5rem;">
+        <div class="prereq-card">
+          <span class="prereq-icon">&#128274;</span>
+          <h3>Caddy</h3>
+          <p>Routes <code>/api/*</code> and <code>/ws</code> to the backend on port 8080.
+             Serves the frontend SPA on <code>/</code>. Handles SSL automatically.</p>
+        </div>
+        <div class="prereq-card">
+          <span class="prereq-icon">&#128260;</span>
+          <h3>MariaDB</h3>
+          <p>Secured with a root password. A dedicated database and user are created.
+             Default schema and permissions are imported on first run.</p>
+        </div>
+        <div class="prereq-card">
+          <span class="prereq-icon">&#9881;</span>
+          <h3>systemd service</h3>
+          <p>Backend runs as the <code>cuento</code> user, restarts on failure, and starts
+             automatically on every boot.</p>
+        </div>
+        <div class="prereq-card">
+          <span class="prereq-icon">&#128640;</span>
+          <h3>GitHub Actions CI/CD</h3>
+          <p>Push to the <code>release</code> branch in either fork to trigger an automatic
+             deploy to your VPS — zero manual SSH required after setup.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <img src="/assets/cuento-claw-full.png" alt="" class="cta-logo" aria-hidden="true" />
+      <h2>Ready to host your own world?</h2>
+      <p>Download the CLI and have Cuento running in minutes.</p>
+      <a href="https://github.com/kate-makarova/cuento-cli/releases/latest" class="btn-sketch btn-primary btn-large">Download Cuento CLI ↗</a>
+    </div>
+  </section>

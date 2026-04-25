@@ -1,0 +1,129 @@
+---
+title: "Admin Subforums — Cuento Docs"
+---
+
+      <div class="docs-eyebrow">Admin Panel</div>
+      <h1 class="docs-title">Subforums</h1>
+      <p class="docs-lead">
+        The Subforums page is where you build and maintain the structure of your board.
+        Content is organised in a two-level hierarchy: <strong>Categories</strong> group
+        related <strong>Subforums</strong> together. You can create, reorder, edit, and
+        delete both from this page.
+      </p>
+
+      <div class="docs-screenshot">
+        <img src="/assets/screenshots/admin-subforums.png" alt="Admin Subforums page screenshot" />
+      </div>
+
+      <h2 class="docs-h2">Structure</h2>
+      <p class="docs-p">
+        Every subforum belongs to exactly one category. Categories provide top-level
+        groupings (e.g. "In-Character", "Out-of-Character") while subforums are the
+        actual boards where members post threads (e.g. "The Tavern", "Introductions").
+      </p>
+
+      <div class="callout">
+        The page lists all categories in order, with each category's subforums
+        nested beneath it. Scroll down to find the subforum you want to edit.
+      </div>
+
+      <h2 class="docs-h2">Category fields</h2>
+
+      <div class="field-list">
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Name</div>
+            <div class="field-values">text</div>
+          </div>
+          <div class="field-desc">
+            The display name of the category, shown as a section heading on the forum index.
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Position</div>
+            <div class="field-values">number</div>
+          </div>
+          <div class="field-desc">
+            Controls the order in which categories appear. Lower numbers appear first.
+            Categories with equal positions are sorted by their database ID.
+          </div>
+        </div>
+      </div>
+
+      <h2 class="docs-h2">Subforum fields</h2>
+
+      <div class="field-list">
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Name</div>
+            <div class="field-values">text</div>
+          </div>
+          <div class="field-desc">
+            The display name of the subforum, shown as a link on the forum index and in breadcrumbs.
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Position</div>
+            <div class="field-values">number</div>
+          </div>
+          <div class="field-desc">
+            Order of this subforum within its category. Lower numbers appear first.
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Category ID</div>
+            <div class="field-values">number</div>
+          </div>
+          <div class="field-desc">
+            The ID of the parent category. Change this value to move the subforum to a
+            different category. You can find a category's ID in its URL or by noting the
+            order in which they appear on this page.
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Description</div>
+            <div class="field-values">rich text</div>
+          </div>
+          <div class="field-desc">
+            A short description displayed below the subforum name on the forum index.
+            The editor supports BBCode formatting — use the toolbar above the text area
+            to add bold, italic, links, and other formatting.
+          </div>
+        </div>
+      </div>
+
+      <h2 class="docs-h2">Actions</h2>
+
+      <div class="field-list">
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Update</div>
+          </div>
+          <div class="field-desc">
+            Saves any changes made to that category or subforum's fields. Each item has
+            its own Update button — clicking it saves only that item.
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Delete</div>
+          </div>
+          <div class="field-desc">
+            Permanently removes the category or subforum. Deleting a category also removes
+            all of its subforums. This cannot be undone — make sure you have moved any
+            content you want to keep before deleting.
+          </div>
+        </div>
+      </div>
+
+      <h2 class="docs-h2">Creating new items</h2>
+      <p class="docs-p">
+        To add a new subforum or category, scroll to the bottom of the page and use
+        the creation form. New items appear in the list immediately after you save them.
+        Fill in all fields before saving — a subforum without a name or category ID
+        cannot be saved.
+      </p>

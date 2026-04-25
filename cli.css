@@ -1,0 +1,294 @@
+/* ── CLI page extras ─────────────────────────────────────── */
+
+/* Hero variant — shorter, no full-height */
+.cli-hero {
+  padding: 9rem 2.5rem 5rem;
+  border-bottom: 1px solid rgba(13,13,13,0.25);
+}
+
+.cli-hero .hero-eyebrow { margin-bottom: 0.75rem; }
+
+.cli-hero .hero-title {
+  font-family: var(--font-hand);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+
+.cli-hero .hero-sub {
+  font-size: 1rem;
+  line-height: 1.8;
+  opacity: 0.72;
+  max-width: 520px;
+  margin-bottom: 2rem;
+}
+
+/* Download badges */
+.download-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+/* ── Terminal block ───────────────────────────────────────── */
+.terminal {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  line-height: 2;
+  padding: 1.75rem 2rem;
+  position: relative;
+  margin: 2rem 0;
+}
+
+.terminal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect x='1' y='1' width='calc(100%25 - 2px)' height='calc(100%25 - 2px)' fill='none' stroke='%23f5f2ec' stroke-width='1.25'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.terminal-dots {
+  font-size: 0.55rem;
+  letter-spacing: 0.4em;
+  opacity: 0.4;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.terminal .prompt { opacity: 0.4; }
+.terminal .cmd    { font-weight: 600; }
+.terminal .comment { opacity: 0.38; font-style: italic; }
+
+/* ── Sections shared ─────────────────────────────────────── */
+.cli-section {
+  padding: 5rem 0;
+  border-top: 1px solid rgba(13,13,13,0.25);
+}
+
+/* ── Prerequisites ────────────────────────────────────────── */
+.prereq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.prereq-card {
+  padding: 1.5rem 1.5rem;
+  position: relative;
+}
+
+.prereq-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Crect x='0.75' y='0.75' width='calc(100%25 - 1.5px)' height='calc(100%25 - 1.5px)' fill='none' stroke='%230d0d0d' stroke-width='1' rx='0'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.prereq-card h3 {
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.prereq-card p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.65;
+}
+
+.prereq-icon {
+  font-size: 1.4rem;
+  display: block;
+  margin-bottom: 0.75rem;
+  filter: grayscale(1);
+}
+
+/* ── Commands ────────────────────────────────────────────── */
+.commands-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.command-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+  align-items: start;
+  padding-bottom: 2rem;
+  border-bottom: 1px dashed rgba(13,13,13,0.15);
+}
+
+.command-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.command-name {
+  font-family: var(--font-hand);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.command-badge {
+  display: inline-block;
+  font-family: var(--font-hand);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.45;
+  padding: 0.1em 0.5em;
+  border: 1px solid currentColor;
+  margin-top: 0.4rem;
+}
+
+.command-desc h3 {
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.command-desc p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+
+.command-steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.command-steps li {
+  font-family: var(--font-hand);
+  font-size: 1rem;
+  opacity: 0.72;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.command-steps li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  opacity: 0.4;
+}
+
+/* ── Steps / How it works ────────────────────────────────── */
+.numbered-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 2.5rem;
+  counter-reset: step-counter;
+}
+
+.numbered-step {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 1.5rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px dashed rgba(13,13,13,0.15);
+  align-items: start;
+}
+
+.numbered-step:last-child { border-bottom: none; }
+
+.n-step-num {
+  font-family: var(--font-hand);
+  font-size: 2.5rem;
+  font-weight: 700;
+  opacity: 0.1;
+  line-height: 1;
+}
+
+.n-step-body h3 {
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.n-step-body p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  opacity: 0.68;
+}
+
+/* inline code */
+code {
+  font-family: var(--font-hand);
+  font-size: 0.95em;
+  background: rgba(13,13,13,0.07);
+  padding: 0.1em 0.4em;
+}
+
+/* ── Config table ─────────────────────────────────────────── */
+.config-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+}
+
+.config-table th {
+  font-family: var(--font-hand);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.45;
+  text-align: left;
+  padding: 0.5rem 1rem 0.75rem;
+  border-bottom: 1px solid rgba(13,13,13,0.25);
+}
+
+.config-table td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px dashed rgba(13,13,13,0.12);
+  line-height: 1.5;
+}
+
+.config-table tr:last-child td { border-bottom: none; }
+
+.config-table td:first-child {
+  font-family: var(--font-hand);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.config-table td:last-child {
+  opacity: 0.62;
+  font-size: 0.9rem;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .cli-hero { padding: 6rem 1.25rem 3.5rem; }
+
+  .command-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .numbered-step {
+    grid-template-columns: 48px 1fr;
+    gap: 1rem;
+  }
+
+  .config-table th:last-child,
+  .config-table td:last-child { display: none; }
+}

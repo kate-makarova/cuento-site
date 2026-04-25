@@ -1,0 +1,187 @@
+---
+title: "Character Template Editor — Cuento Docs"
+---
+
+      <div class="docs-eyebrow">Admin Panel</div>
+      <h1 class="docs-title">Character Template Editor</h1>
+      <p class="docs-lead">
+        The Character Template Editor defines the fields that appear on every character
+        sheet on your board. You control what information members fill in when creating
+        a character — name, age, appearance, biography, or anything your game system requires.
+      </p>
+
+      <div class="docs-screenshot">
+        <img src="/assets/screenshots/admin-character-template.png" alt="Character Template Editor screenshot" />
+      </div>
+
+      <h2 class="docs-h2">How it works</h2>
+      <p class="docs-p">
+        Each row in the editor defines one field on the character sheet. The order of
+        rows determines the order fields appear to members. Add as many fields as your
+        game needs, arrange them, and save — the template applies to all characters
+        on the board.
+      </p>
+
+      <div class="callout">
+        Changing the template does not delete existing character data. Removing a field
+        from the template hides it from the sheet UI but the underlying data is retained.
+        Renaming the <strong>Machine Field Name</strong> of an existing field, however,
+        will effectively disconnect it from stored data — treat machine names as permanent
+        once characters have been created.
+      </div>
+
+      <h2 class="docs-h2">Field properties</h2>
+
+      <div class="field-list">
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Machine Field Name</div>
+            <div class="field-values">text</div>
+          </div>
+          <div class="field-desc">
+            The internal identifier for this field, used in the database and API.
+            Use lowercase letters and underscores only — for example <code>character_name</code>,
+            <code>age</code>, <code>eye_colour</code>. This name must be unique across all
+            fields in the template. It cannot be changed after characters have been created
+            with this field.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Human Field Name</div>
+            <div class="field-values">text</div>
+          </div>
+          <div class="field-desc">
+            The label shown to members on the character sheet. This can be in any language
+            and changed freely at any time — for example <code>Character Name</code>,
+            <code>Age</code>, <code>Eye Colour</code>.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Field Type</div>
+            <div class="field-values">dropdown</div>
+          </div>
+          <div class="field-desc">
+            The type of input control shown to members when they fill in this field.
+            <table class="docs-table">
+              <thead><tr><th>Value</th><th>Input shown</th></tr></thead>
+              <tbody>
+                <tr><td><code>string</code></td><td>Single-line text box</td></tr>
+                <tr><td><code>text</code></td><td>Multi-line text area</td></tr>
+                <tr><td><code>int</code></td><td>Whole number input</td></tr>
+                <tr><td><code>decimal</code></td><td>Decimal number input</td></tr>
+                <tr><td><code>date</code></td><td>Date picker</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Content Field Type</div>
+            <div class="field-values">dropdown</div>
+          </div>
+          <div class="field-desc">
+            How the value is stored and rendered. Choose the type that best matches
+            what the field will contain.
+            <table class="docs-table">
+              <thead><tr><th>Value</th><th>Use for</th></tr></thead>
+              <tbody>
+                <tr><td><code>short_text</code></td><td>Brief values up to 255 characters (names, titles, ages)</td></tr>
+                <tr><td><code>long_text</code></td><td>Extended prose (biography, personality, history)</td></tr>
+                <tr><td><code>number</code></td><td>Integer values</td></tr>
+                <tr><td><code>decimal</code></td><td>Floating-point values</td></tr>
+                <tr><td><code>image</code></td><td>An uploaded image (avatar, reference art)</td></tr>
+                <tr><td><code>cropped_image</code></td><td>An image cropped to exact pixel dimensions — reveals Width and Height fields</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Order</div>
+            <div class="field-values">number</div>
+          </div>
+          <div class="field-desc">
+            Determines the position of this field on the character sheet. Fields are sorted
+            by this number in ascending order. Use gaps (1, 10, 20…) if you expect to
+            insert fields between existing ones later.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Width / Height</div>
+            <div class="field-values">number (px)</div>
+          </div>
+          <div class="field-desc">
+            Only visible when <strong>Content Field Type</strong> is set to
+            <code>cropped_image</code>. Defines the exact pixel dimensions images will
+            be cropped to when members upload them. Useful for keeping portrait slots
+            or header images consistent across all character sheets.
+          </div>
+        </div>
+
+      </div>
+
+      <h2 class="docs-h2">Managing fields</h2>
+
+      <div class="field-list">
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Add Field</div>
+          </div>
+          <div class="field-desc">
+            Appends a new blank field row at the bottom of the template. Fill in all
+            properties before saving. Fields with an empty Machine Field Name are
+            ignored when saving.
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Remove</div>
+          </div>
+          <div class="field-desc">
+            Removes that field from the template immediately in the editor. The change
+            is not permanent until you click <strong>Save</strong>.
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Save</div>
+          </div>
+          <div class="field-desc">
+            Saves the entire template in one go. All fields (except those with an empty
+            Machine Field Name) are sent to the server. The button shows a confirmation
+            state briefly before returning to idle.
+          </div>
+        </div>
+      </div>
+
+      <h2 class="docs-h2">Example template</h2>
+      <p class="docs-p">
+        A simple fantasy character sheet might use the following fields:
+      </p>
+
+      <table class="docs-table" style="margin-top: 1rem;">
+        <thead>
+          <tr>
+            <th>Machine Name</th>
+            <th>Human Name</th>
+            <th>Field Type</th>
+            <th>Content Type</th>
+            <th>Order</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>character_name</code></td><td>Character Name</td><td>string</td><td>short_text</td><td>1</td></tr>
+          <tr><td><code>portrait</code></td><td>Portrait</td><td>string</td><td>cropped_image</td><td>2</td></tr>
+          <tr><td><code>age</code></td><td>Age</td><td>int</td><td>number</td><td>3</td></tr>
+          <tr><td><code>biography</code></td><td>Biography</td><td>text</td><td>long_text</td><td>4</td></tr>
+        </tbody>
+      </table>

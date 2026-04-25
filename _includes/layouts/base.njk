@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Special+Elite&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  {% for css in extraCss %}
+  <link rel="stylesheet" href="{{ css }}" />
+  {% endfor %}
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <img src="/assets/cuento-claw-full.png" alt="Cuento" class="nav-logo-img" />
+      <span>Cuento</span>
+    </a>
+    {% if navStyle == "main" %}
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#open-source">Open Source</a>
+      <a href="/cli/">CLI</a>
+      <a href="/docs/">Docs</a>
+      <a href="https://github.com/kate-makarova/cuento-backend" class="btn-sketch btn-small">GitHub ↗</a>
+    </div>
+    {% elif navStyle == "cli" %}
+    <div class="nav-links">
+      <a href="#install">Install</a>
+      <a href="#commands">Commands</a>
+      <a href="#config">Config</a>
+      <a href="https://github.com/kate-makarova/cuento-cli/releases/latest" class="btn-sketch btn-small">Download ↗</a>
+    </div>
+    {% elif navStyle == "docs" %}
+    <div class="nav-links">
+      <a href="/docs/">Docs</a>
+      <a href="/cli/">CLI</a>
+    </div>
+    {% endif %}
+  </nav>
+
+  {{ content | safe }}
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-brand">Cuento</span>
+      <div class="footer-links">
+        <a href="https://github.com/kate-makarova/cuento-backend">GitHub</a>
+        <a href="/docs/">Docs</a>
+        <a href="/cli/">CLI</a>
+      </div>
+      <span class="footer-copy">Made with ink &amp; imagination.</span>
+    </div>
+  </footer>
+
+</body>
+</html>
