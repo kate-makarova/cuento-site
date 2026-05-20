@@ -42,59 +42,150 @@ navStyle: main
   <section class="features" id="features">
     <div class="container">
       <div class="section-label">features</div>
-      <h2 class="section-title">Everything a storyteller needs.</h2>
-      <div class="features-grid">
+      <h2 class="section-title">Built for everyone in the story.</h2>
 
-        <div class="feature-card">
-          <div class="feature-icon">&#128203;</div>
-          <h3>Customizable Character Sheets</h3>
-          <p>Design character sheets and game topics that fit your world — any system, any genre, fully your own.</p>
+      <div class="features-tabs" role="tablist">
+        <button class="tab-btn active" data-tab="players" role="tab" aria-selected="true">For Players</button>
+        <button class="tab-btn" data-tab="admins" role="tab" aria-selected="false">For Admins</button>
+        <button class="tab-btn" data-tab="designers" role="tab" aria-selected="false">For Designers</button>
+        <button class="tab-btn" data-tab="techbros" role="tab" aria-selected="false">For Tech Bros</button>
+      </div>
+
+      <div class="features-panels">
+
+        <!-- Players -->
+        <div class="features-panel active" data-panel="players" role="tabpanel">
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">&#128100;</div>
+              <h3>One Account, All Characters</h3>
+              <p>Manage all your characters under a single account. Switch between them seamlessly — in game and out.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#128276;</div>
+              <h3>Post Tracking &amp; Notifications</h3>
+              <p>Follow all your game posts from one place and subscribe to notifications so you never miss a reply.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#129689;</div>
+              <h3>Automatic Currency</h3>
+              <p>Earn in-game currency automatically as you write and play — no manual tracking needed.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#128214;</div>
+              <h3>Beautiful Lore Topics</h3>
+              <p>Lore pages that look as good as the worlds they describe — clean, readable, and immersive.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#129302;</div>
+              <h3>AI Lore Assistant</h3>
+              <p>Ask questions and get answers from your game's lore and event history — powered by AI, built into the forum.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">&#128276;</div>
-          <h3>Live Updates &amp; Notifications</h3>
-          <p>Never miss a post. Get real-time updates when your story moves forward and stay in the moment.</p>
+        <!-- Admins -->
+        <div class="features-panel" data-panel="admins" role="tabpanel">
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">&#128203;</div>
+              <h3>Automated Character Booking</h3>
+              <p>Character reservations and sheet approvals handled automatically — less admin work, more storytelling.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#9203;</div>
+              <h3>Inactivity Tracking</h3>
+              <p>Automatically detect inactive players and send reminders before a character's slot goes cold.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#128193;</div>
+              <h3>Customizable Templates</h3>
+              <p>Design your own character sheet forms, game topic headers, and more — no coding required.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#129513;</div>
+              <h3>Header Widgets</h3>
+              <p>Build your forum's header from pre-made widgets — show world stats, active players, custom text, and more.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">&#127912;</div>
-          <h3>Customizable Design</h3>
-          <p>Make it yours — choose themes, colours, and layouts that match the mood of your world.</p>
+        <!-- Designers -->
+        <div class="features-panel" data-panel="designers" role="tabpanel">
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">&#128396;</div>
+              <h3>Custom HTML Markup</h3>
+              <p>Full control over the HTML structure of your forum's pages. Build exactly what you envision.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#127912;</div>
+              <h3>Live CSS Preview</h3>
+              <p>Edit CSS and see changes on the real forum in real time — without disrupting the view for other users.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#128190;</div>
+              <h3>Design Drafts</h3>
+              <p>Save your work-in-progress designs as drafts and return to edit them whenever you're ready.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#10024;</div>
+              <h3>Code Highlighting</h3>
+              <p>Built-in syntax highlighting in the editor makes writing and reviewing code a pleasure.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">&#128274;</div>
-          <h3>E2E Encrypted Messages</h3>
-          <p>Direct messages are end-to-end encrypted. Your private conversations stay private, always.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">&#9881;</div>
-          <h3>Self-Hosted</h3>
-          <p>Run Cuento on your own server. Your stories, your data, forever under your control. GDPR-compliant by design.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">&#127849;</div>
-          <h3>In-Game Currency</h3>
-          <p>Players earn currency automatically for in-game actions — writing posts, filling character sheets, and more. Spend it however your world demands.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">&#128202;</div>
-          <h3>Statistics &amp; Leaderboards</h3>
-          <p>Track who's most active with rolling weekly post counts and all-time stats. A little friendly competition keeps the story moving.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">&#129513;</div>
-          <h3>Header Widgets</h3>
-          <p>Embed live data — post counts, active players, world events — directly into your board's header. Your world, at a glance.</p>
+        <!-- Tech Bros -->
+        <div class="features-panel" data-panel="techbros" role="tabpanel">
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">&#128421;</div>
+              <h3>Self-Hosted</h3>
+              <p>Your data stays on your server. GDPR-compliant by design. No SaaS lock-in, ever.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#9881;</div>
+              <h3>CLI Included</h3>
+              <p>Deploy, update, and troubleshoot your instance using the official Cuento CLI — one tool for everything.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#128640;</div>
+              <h3>GitHub Actions Deploy</h3>
+              <p>Your instance code lives on GitHub and deploys automatically via GitHub Actions. Push to ship.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#129782;</div>
+              <h3>Lightweight by Design</h3>
+              <p>Runs comfortably on a VPS with 1 CPU and 1 GB RAM. No Kubernetes, no headaches.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#128202;</div>
+              <h3>Resource Monitoring</h3>
+              <p>A built-in monitoring screen gives you a live view of your instance's health and resource usage.</p>
+            </div>
+          </div>
         </div>
 
       </div>
     </div>
+
+    <script>
+      (function () {
+        var tabs = document.querySelectorAll('.tab-btn');
+        var panels = document.querySelectorAll('.features-panel');
+        tabs.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var target = btn.dataset.tab;
+            tabs.forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+            panels.forEach(function (p) { p.classList.remove('active'); });
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+            document.querySelector('[data-panel="' + target + '"]').classList.add('active');
+          });
+        });
+      })();
+    </script>
   </section>
 
   <!-- OPEN SOURCE -->

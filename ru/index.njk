@@ -43,59 +43,150 @@ navStyle: main
   <section class="features" id="features">
     <div class="container">
       <div class="section-label">возможности</div>
-      <h2 class="section-title">Всё, что нужно рассказчику.</h2>
-      <div class="features-grid">
+      <h2 class="section-title">Для каждого участника истории.</h2>
 
-        <div class="feature-card">
-          <div class="feature-icon">&#128203;</div>
-          <h3>Настраиваемые анкеты персонажей</h3>
-          <p>Создавай анкеты и игровые темы под свой мир — любая система, любой жанр, полностью твоё.</p>
+      <div class="features-tabs" role="tablist">
+        <button class="tab-btn active" data-tab="players" role="tab" aria-selected="true">Игрокам</button>
+        <button class="tab-btn" data-tab="admins" role="tab" aria-selected="false">Администраторам</button>
+        <button class="tab-btn" data-tab="designers" role="tab" aria-selected="false">Дизайнерам</button>
+        <button class="tab-btn" data-tab="techbros" role="tab" aria-selected="false">Технарям</button>
+      </div>
+
+      <div class="features-panels">
+
+        <!-- Игроки -->
+        <div class="features-panel active" data-panel="players" role="tabpanel">
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">&#128100;</div>
+              <h3>Один аккаунт — все персонажи</h3>
+              <p>Управляй всеми персонажами из одного аккаунта. Переключайся между ними легко — в игре и за её пределами.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#128276;</div>
+              <h3>Посты и уведомления</h3>
+              <p>Следи за всеми своими игровыми постами в одном месте и подписывайся на уведомления, чтобы не пропустить ни одного ответа.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#129689;</div>
+              <h3>Автоматическая валюта</h3>
+              <p>Получай внутриигровую валюту автоматически за посты и игровые действия — никаких ручных подсчётов.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#128214;</div>
+              <h3>Красивые лор-темы</h3>
+              <p>Страницы лора, которые выглядят так же хорошо, как миры, которые они описывают — чисто, читабельно и атмосферно.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#129302;</div>
+              <h3>ИИ-помощник по лору</h3>
+              <p>Задавай вопросы и получай ответы из лора и истории событий игры — ИИ встроен прямо в форум.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">&#128276;</div>
-          <h3>Обновления и уведомления</h3>
-          <p>Не пропускай ни одного поста. Получай уведомления в реальном времени, когда история движется вперёд.</p>
+        <!-- Администраторы -->
+        <div class="features-panel" data-panel="admins" role="tabpanel">
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">&#128203;</div>
+              <h3>Автоматическое бронирование персонажей</h3>
+              <p>Бронирование слотов и проверка анкет обрабатываются автоматически — меньше рутины, больше игры.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#9203;</div>
+              <h3>Отслеживание неактивности</h3>
+              <p>Автоматически определяй неактивных игроков и отправляй напоминания, пока их слот ещё не освободился.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#128193;</div>
+              <h3>Настраиваемые шаблоны</h3>
+              <p>Создавай собственные формы анкет персонажей, шапки игровых тем и многое другое — без программирования.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#129513;</div>
+              <h3>Виджеты в шапке</h3>
+              <p>Собирай шапку форума из готовых виджетов — показывай статистику мира, активных игроков, произвольный текст и многое другое.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">&#127912;</div>
-          <h3>Настраиваемый дизайн</h3>
-          <p>Сделай форум своим — выбирай темы оформления, цвета и макеты, соответствующие атмосфере твоего мира.</p>
+        <!-- Дизайнеры -->
+        <div class="features-panel" data-panel="designers" role="tabpanel">
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">&#128396;</div>
+              <h3>Произвольная HTML-разметка</h3>
+              <p>Полный контроль над структурой HTML-страниц форума. Строй именно то, что задумал.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#127912;</div>
+              <h3>Живой CSS-превью</h3>
+              <p>Редактируй CSS и сразу видь изменения на реальном форуме — не нарушая отображение для других пользователей.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#128190;</div>
+              <h3>Черновики дизайна</h3>
+              <p>Сохраняй незаконченные работы как черновики и возвращайся к редактированию в любой момент.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#10024;</div>
+              <h3>Подсветка кода</h3>
+              <p>Встроенная подсветка синтаксиса в редакторе делает написание и проверку кода удобными.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">&#128274;</div>
-          <h3>Сквозное шифрование сообщений</h3>
-          <p>Личные сообщения защищены сквозным шифрованием. Твоя переписка остаётся только твоей.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">&#9881;</div>
-          <h3>Собственный хостинг</h3>
-          <p>Запускай Cuento на своём сервере. Твои истории, твои данные — всегда под твоим контролем. Соответствует требованиям GDPR.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">&#127849;</div>
-          <h3>Внутриигровая валюта</h3>
-          <p>Игроки автоматически получают валюту за игровые действия — написание постов, заполнение анкет и многое другое. Трать её так, как того требует твой мир.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">&#128202;</div>
-          <h3>Статистика и рейтинги</h3>
-          <p>Отслеживай активность: еженедельные счётчики постов и статистика за всё время. Немного здоровой конкуренции — и история движется быстрее.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">&#129513;</div>
-          <h3>Виджеты в шапке</h3>
-          <p>Добавляй живые данные — количество постов, активные игроки, события мира — прямо в шапку форума. Твой мир — одним взглядом.</p>
+        <!-- Технари -->
+        <div class="features-panel" data-panel="techbros" role="tabpanel">
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">&#128421;</div>
+              <h3>Self-hosted</h3>
+              <p>Данные остаются на твоём сервере. Соответствует требованиям GDPR. Никакой привязки к SaaS.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#9881;</div>
+              <h3>CLI в комплекте</h3>
+              <p>Разворачивай, обновляй и диагностируй инстанс с помощью официального Cuento CLI — один инструмент для всего.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#128640;</div>
+              <h3>Деплой через GitHub Actions</h3>
+              <p>Код инстанса хранится на GitHub и деплоится автоматически через GitHub Actions. Запушил — готово.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#129782;</div>
+              <h3>Легковесный по дизайну</h3>
+              <p>Комфортно работает на VPS с 1 CPU и 1 ГБ RAM. Никакого Kubernetes, никаких лишних сложностей.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">&#128202;</div>
+              <h3>Мониторинг ресурсов</h3>
+              <p>Встроенный экран мониторинга даёт живую картину состояния и потребления ресурсов инстанса.</p>
+            </div>
+          </div>
         </div>
 
       </div>
     </div>
+
+    <script>
+      (function () {
+        var tabs = document.querySelectorAll('.tab-btn');
+        var panels = document.querySelectorAll('.features-panel');
+        tabs.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var target = btn.dataset.tab;
+            tabs.forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+            panels.forEach(function (p) { p.classList.remove('active'); });
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+            document.querySelector('[data-panel="' + target + '"]').classList.add('active');
+          });
+        });
+      })();
+    </script>
   </section>
 
   <!-- OPEN SOURCE -->
