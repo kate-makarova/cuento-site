@@ -1,0 +1,117 @@
+---
+title: "Черновики дизайна — Документация Cuento"
+---
+
+      <div class="docs-eyebrow">Панель администратора</div>
+      <h1 class="docs-title">Черновики дизайна</h1>
+      <p class="docs-lead">
+        Черновики дизайна позволяют создавать и редактировать альтернативные CSS-темы для форума,
+        не затрагивая живой сайт. Каждый черновик хранит собственную версию таблицы стилей,
+        которую можно предпросматривать и публиковать в любой момент.
+      </p>
+
+      <h2 class="docs-h2">Список черновиков</h2>
+
+      <div class="docs-screenshot">
+        <img src="/assets/screenshots/admin-design-drafts-index.png" alt="Скриншот списка черновиков дизайна" />
+      </div>
+
+      <p class="docs-p">
+        В списке черновиков отображаются все сохранённые черновики с датой создания, датой последнего
+        изменения и кнопками действий. Здесь можно:
+      </p>
+
+      <div class="field-list">
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Создать черновик</div>
+          </div>
+          <div class="field-desc">
+            Создаёт новый пустой черновик. Откроется редактор, где нужно задать название и написать CSS.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Открыть предпросмотр</div>
+          </div>
+          <div class="field-desc">
+            Открывает форум в новой вкладке с применённым CSS этого черновика, чтобы оценить дизайн
+            без влияния на живых посетителей.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Опубликовать</div>
+          </div>
+          <div class="field-desc">
+            Немедленно применяет CSS этого черновика как активную таблицу стилей сайта. Все посетители
+            увидят обновлённый дизайн. Черновик остаётся доступным для редактирования после публикации.
+          </div>
+        </div>
+
+      </div>
+
+      <h2 class="docs-h2">Редактор черновика</h2>
+
+      <div class="docs-screenshot">
+        <img src="/assets/screenshots/admin-design-drafts-edit.png" alt="Скриншот редактора черновика дизайна" />
+      </div>
+
+      <p class="docs-p">
+        Клик по названию черновика открывает редактор с полным CSS-кодом, который можно изменять напрямую.
+      </p>
+
+      <div class="field-list">
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Название</div>
+            <div class="field-values">текст</div>
+          </div>
+          <div class="field-desc">
+            Внутреннее название черновика, отображаемое в списке черновиков.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Редактор CSS</div>
+          </div>
+          <div class="field-desc">
+            Основная область кода с содержимым <code>main_style.css</code>. Редактируй CSS напрямую здесь.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Автосохранение</div>
+            <div class="field-values">чекбокс</div>
+          </div>
+          <div class="field-desc">
+            При включённом чекбоксе изменения сохраняются автоматически по мере набора. Сними галочку,
+            чтобы сохранять вручную.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Открыть предпросмотр</div>
+          </div>
+          <div class="field-desc">
+            Открывает предпросмотр форума с текущим (возможно, несохранённым) черновиком.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Опубликовать</div>
+          </div>
+          <div class="field-desc">
+            Публикует черновик как живую таблицу стилей сайта прямо из редактора.
+          </div>
+        </div>
+
+      </div>

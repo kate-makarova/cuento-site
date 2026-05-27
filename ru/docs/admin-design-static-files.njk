@@ -1,0 +1,93 @@
+---
+title: "Дизайн — Документация Cuento"
+---
+
+      <div class="docs-eyebrow">Панель администратора</div>
+      <h1 class="docs-title">Дизайн</h1>
+      <p class="docs-lead">
+        Страница дизайна управляет статическими ресурсами оформления: CSS-вариациями, фавиконом
+        и двумя основными таблицами стилей. Каждый файл имеет историю версий, позволяющую
+        откатиться к любой предыдущей загрузке.
+      </p>
+
+      <div class="docs-screenshot">
+        <img src="/assets/screenshots/admin-design-static-files.png" alt="Скриншот страницы дизайна администратора" />
+      </div>
+
+      <h2 class="docs-h2">Вариации дизайна</h2>
+      <p class="docs-p">
+        Вариации дизайна позволяют задать именованные CSS-модификаторы, которые применяются
+        для изменения внешнего вида форума. У каждой вариации есть CSS-класс и отображаемое название.
+      </p>
+
+      <div class="field-list">
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">CLASS_NAME</div>
+            <div class="field-values">текст</div>
+          </div>
+          <div class="field-desc">
+            CSS-класс, который применяется к элементу <code>&lt;body&gt;</code> при активной вариации.
+            Должен быть корректным именем CSS-класса.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">NAME</div>
+            <div class="field-values">текст</div>
+          </div>
+          <div class="field-desc">
+            Человекочитаемое название вариации, отображаемое в селекторе.
+          </div>
+        </div>
+
+      </div>
+
+      <h2 class="docs-h2">Фавикон</h2>
+      <p class="docs-p">
+        Загрузи файл <code>.ico</code>, чтобы заменить иконку вкладки браузера. В списке предыдущих
+        версий можно просмотреть или восстановить любой более ранний фавикон.
+      </p>
+
+      <h2 class="docs-h2">Таблицы стилей</h2>
+      <p class="docs-p">
+        Два CSS-файла управляют визуальным оформлением форума:
+      </p>
+
+      <div class="field-list">
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">custom_style.css</div>
+          </div>
+          <div class="field-desc">
+            Дополнительный CSS поверх базовых стилей. Используй для переопределения темы,
+            кастомных шрифтов или любого оформления без изменения основной таблицы стилей.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">main_style.css</div>
+          </div>
+          <div class="field-desc">
+            Основная таблица стилей, определяющая базовый визуальный дизайн форума. Это тот же файл,
+            который редактируется через <a href="/ru/docs/admin-design-drafts/" class="docs-link">Черновики дизайна</a>.
+          </div>
+        </div>
+
+      </div>
+
+      <p class="docs-p">
+        В каждом разделе есть кнопка <strong>Загрузить</strong> и список предыдущих версий.
+        Клик <strong>Просмотреть</strong> рядом с версией открывает этот файл. Клик <strong>Откатить</strong>
+        восстанавливает эту версию как текущий активный файл.
+      </p>
+
+      <div class="callout">
+        Откат таблицы стилей применяется немедленно для всех посетителей. Используй
+        <a href="/ru/docs/admin-design-drafts/" class="docs-link">Черновики дизайна</a>, чтобы безопасно
+        предпросматривать изменения CSS перед применением на живом сайте.
+      </div>

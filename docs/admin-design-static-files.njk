@@ -1,0 +1,94 @@
+---
+title: "Design — Cuento Docs"
+---
+
+      <div class="docs-eyebrow">Admin Panel</div>
+      <h1 class="docs-title">Design</h1>
+      <p class="docs-lead">
+        The Design page manages static design assets for your board: CSS variations, the favicon,
+        and the two core stylesheets. Each file section keeps a version history so you can revert
+        to a previous upload at any time.
+      </p>
+
+      <div class="docs-screenshot">
+        <img src="/assets/screenshots/admin-design-static-files.png" alt="Admin Design page screenshot" />
+      </div>
+
+      <h2 class="docs-h2">Design Variations</h2>
+      <p class="docs-p">
+        Design variations let you define named CSS class modifiers that members or admins can
+        apply to change the board's appearance. Each variation has a CSS class name and a
+        display name.
+      </p>
+
+      <div class="field-list">
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">CLASS_NAME</div>
+            <div class="field-values">text</div>
+          </div>
+          <div class="field-desc">
+            The CSS class that will be applied to the <code>&lt;body&gt;</code> element when
+            this variation is active. Must be a valid CSS class name.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">NAME</div>
+            <div class="field-values">text</div>
+          </div>
+          <div class="field-desc">
+            The human-readable label for this variation shown in the selector.
+          </div>
+        </div>
+
+      </div>
+
+      <h2 class="docs-h2">Favicon</h2>
+      <p class="docs-p">
+        Upload a <code>.ico</code> file to replace the browser tab icon. The previous versions
+        list lets you view or restore any earlier favicon.
+      </p>
+
+      <h2 class="docs-h2">Stylesheets</h2>
+      <p class="docs-p">
+        Two CSS files control the board's visual style:
+      </p>
+
+      <div class="field-list">
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">custom_style.css</div>
+          </div>
+          <div class="field-desc">
+            Additional CSS layered on top of the base styles. Use this for theme overrides,
+            custom fonts, or any per-board styling without touching the core stylesheet.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">main_style.css</div>
+          </div>
+          <div class="field-desc">
+            The primary stylesheet that defines the board's base visual design. This is the
+            same file edited through <a href="/docs/admin-design-drafts/" class="docs-link">Design Drafts</a>.
+          </div>
+        </div>
+
+      </div>
+
+      <p class="docs-p">
+        Each stylesheet section has an <strong>Upload</strong> button and a previous versions list.
+        Clicking <strong>View</strong> next to a version opens that file. Clicking <strong>Revert</strong>
+        restores that version as the current active file.
+      </p>
+
+      <div class="callout">
+        Reverting a stylesheet takes effect immediately for all visitors. Use
+        <a href="/docs/admin-design-drafts/" class="docs-link">Design Drafts</a> to safely
+        preview CSS changes before applying them to the live site.
+      </div>

@@ -1,0 +1,117 @@
+---
+title: "Design Drafts — Cuento Docs"
+---
+
+      <div class="docs-eyebrow">Admin Panel</div>
+      <h1 class="docs-title">Design Drafts</h1>
+      <p class="docs-lead">
+        Design Drafts let you create and edit alternative CSS themes for your board before
+        publishing them. Each draft holds its own version of the site stylesheet, which you
+        can preview live and publish when ready.
+      </p>
+
+      <h2 class="docs-h2">Draft List</h2>
+
+      <div class="docs-screenshot">
+        <img src="/assets/screenshots/admin-design-drafts-index.png" alt="Design Drafts list screenshot" />
+      </div>
+
+      <p class="docs-p">
+        The draft list shows all saved drafts with their creation date, last changed date,
+        and action buttons. From here you can:
+      </p>
+
+      <div class="field-list">
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Create Draft</div>
+          </div>
+          <div class="field-desc">
+            Creates a new empty draft. You will be taken to the editor to give it a name and start writing CSS.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Open Draft Preview</div>
+          </div>
+          <div class="field-desc">
+            Opens the board in a separate browser tab with this draft's CSS applied, so you can
+            review the design without affecting live visitors.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Publish</div>
+          </div>
+          <div class="field-desc">
+            Applies this draft's CSS as the active site stylesheet immediately. All visitors will
+            see the updated design. The draft remains editable after publishing.
+          </div>
+        </div>
+
+      </div>
+
+      <h2 class="docs-h2">Draft Editor</h2>
+
+      <div class="docs-screenshot">
+        <img src="/assets/screenshots/admin-design-drafts-edit.png" alt="Design Draft editor screenshot" />
+      </div>
+
+      <p class="docs-p">
+        Clicking a draft name opens the editor. The editor shows the full CSS source for the draft
+        and lets you modify it directly.
+      </p>
+
+      <div class="field-list">
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Name</div>
+            <div class="field-values">text</div>
+          </div>
+          <div class="field-desc">
+            The internal name for this draft, shown in the draft list.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">CSS editor</div>
+          </div>
+          <div class="field-desc">
+            The main code area displaying <code>main_style.css</code>. Edit the CSS directly here.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Auto-save</div>
+            <div class="field-values">checkbox</div>
+          </div>
+          <div class="field-desc">
+            When checked, changes are saved automatically as you type. Uncheck to save manually.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Open Preview</div>
+          </div>
+          <div class="field-desc">
+            Opens the board preview with the current (possibly unsaved) draft applied.
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-meta">
+            <div class="field-name">Publish</div>
+          </div>
+          <div class="field-desc">
+            Publishes the draft as the live site stylesheet directly from the editor.
+          </div>
+        </div>
+
+      </div>
